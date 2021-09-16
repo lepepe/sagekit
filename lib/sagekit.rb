@@ -13,10 +13,16 @@ module Sagekit
   autoload :InvoicesResource, "sagekit/resources/invoices"
   autoload :CustomersResource, "sagekit/resources/customers"
   autoload :VendorsResource, "sagekit/resources/vendors"
+  autoload :VendorStatisticsResource, "sagekit/resources/vendor_statistics"
+  autoload :IcItemsResource, "sagekit/resources/ic_items"
+  autoload :LocationsResource, "sagekit/resources/locations"
 
   # Objects
   autoload :SalesOrder, "sagekit/objects/sales_order.rb"
   autoload :Invoice, "sagekit/objects/invoices.rb"
   autoload :Customer, "sagekit/objects/customer.rb"
   autoload :Vendor, "sagekit/objects/vendor.rb"
+  autoload :VendorStatistic, "sagekit/objects/vendor_statistic.rb"
+  autoload :IcItem, "sagekit/objects/ic_item.rb"
+  autoload :Location, "sagekit/objects/location.rb"
 end

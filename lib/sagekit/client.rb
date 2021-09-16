@@ -29,6 +29,18 @@ module Sagekit
       VendorsResource.new(self)
     end
 
+    def vendor_statistics
+      VendorStatisticsResource.new(self)
+    end
+
+    def ic_items
+      IcItemsResource.new(self)
+    end
+
+    def locations
+      LocationsResource.new(self)
+    end
+
     def connection
       @connection ||= Faraday.new do |con|
         con.url_prefix = base_url

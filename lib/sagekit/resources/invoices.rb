@@ -2,15 +2,15 @@ module Sagekit
   class InvoicesResource < Resource
 
     # Get all records:
-    #   client.list('COMPANY')
+    #   client.invoices.list('COMPANY')
     # Get records using a range:
-    #   client.list('COMPANY', '$skip':5, '$top':2)
+    #   client.invoices.list('COMPANY', '$skip':5, '$top':2)
     # Get records using filter:
-    #   client.list('COMPANY', '$filter':"City eq 'Miami'")
+    #   client.invoices.list('COMPANY', '$filter':"City eq 'Miami'")
     # Get records using complex filter:
-    #   client.list('COMPANY', '$filter':"CustomerNumber eq '112321' and OrderType eq 'Active'")
+    #   client.invoices.list('COMPANY', '$filter':"CustomerNumber eq '112321' and OrderType eq 'Active'")
     # Get records with subset of properties:
-    #   client.list('COMPANY', '$select':'OrderNumber, CustomerNumber')
+    #   client.invoices.list('COMPANY', '$select':'OrderNumber, CustomerNumber')
     #
     # Query Parameters:
     # $filter -> String
@@ -23,9 +23,9 @@ module Sagekit
     end
 
     # Get record by key:
-    #   client.retrieve('COMPANY', 10021638)
+    #   client.invoices.retrieve('COMPANY', 10021638)
     # Get records with subset of properties:
-    #   client.retrieve('COMPANY', '$select':'OrderNumber, CustomerNumber')
+    #   client.invoices.retrieve('COMPANY', '$select':'OrderNumber, CustomerNumber')
     #
     # Query Parameters:
     # $select -> Array

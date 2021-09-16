@@ -50,7 +50,7 @@ module Sagekit
 
     # Delete record
     def delete(company, customer_id)
-      delete_request("#{company}/AR/ARCustomers('#{customer_id}'")
+      delete_request("#{company}/AR/ARCustomers('#{customer_id}')")
       true
     end
   end

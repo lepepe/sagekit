@@ -50,7 +50,7 @@ module Sagekit
 
     # Delete record
     def delete(company, vendor_id)
-      delete_request("#{company}/AP/APVendors('#{vendor_id}'")
+      delete_request("#{company}/AP/APVendors('#{vendor_id}')")
       true
     end
   end
