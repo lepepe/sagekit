@@ -1,14 +1,16 @@
-#+TITLE: README
+#+TITLE: Sagekit
 #+AUTHOR: Jose Perez
 #+EMAIL: jose.perez@vertilux.com
-
-* Sagekit
+#+EXPORT_FILE_NAME: ./docs/index.html
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./docs/css/style.css">
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+OPTIONS: num:nil
 
 Sagekit is a ruby gem client library to talk with Sage300 API.
 
 The Sage 300 Web API makes it easier to create services that integrate with Sage 300 data and business logic. The Web API improves on existing tools for third-party integrations without requiring in-depth understanding of the Sage 300 View protocol and components.
 
-** Installation
+* Installation
 
 Add this line to your application's Gemfile:
 
@@ -21,7 +23,6 @@ And then execute:
 #+begin_src bash
 $ bundle install
 #+end_src
-```
 
 Or install it yourself as:
 
@@ -29,7 +30,7 @@ Or install it yourself as:
 $ gem install sagekit
 #+end_src
 
-** Usage
+* Usage
 
 Make sure you have Sage300 web services up and runing. Web service is an easy way to communicate with 3rd party application without hampering the existing system & this is the reason we will always suggest to go for web service integration, whenever any customer requires integration.
 
@@ -42,18 +43,18 @@ client.sales_orders.list(COMPANY, '$top':10)
 #+end_src
 
 Make sure to change:
-- URL with the web serive url, ex: http://10.255.6.60/Sage300WebApi/v1.0/-/
+- URL with the web serive url, ex: [[http://10.255.6.60/Sage300WebApi/v1.0/-/]]
 - AUTH with the Basic authentication key
 - COMPANY with teh company id
 
-** Resources
+* Resources
 
 The gem maps as closely as possible to the Sage300 API so you can easily convert API examples to gem code.   
 Responses are created as objects like. They're built using OpenStruct so you can easily access data in a Ruby-ish way.
 
-*** AR
+** AR
 
-**** Customers
+*** Customers
 
 #+begin_src ruby
 client.customers.list('COMPANY')
@@ -63,9 +64,9 @@ client.customers.update('COMPANY', GroupCode: 'EXPORT')
 client.customers.delete('COMPANY', 'NUMBER')
 #+end_src
 
-*** IC
+** IC
 
-**** Items
+*** Items
 
 #+begin_src ruby
 client.items.list('COMPANY')
@@ -75,7 +76,7 @@ client.items.update('COMPANY', GroupCode: 'EXPORT')
 client.items.delete('COMPANY', 'NUMBER')
 #+end_src
 
-**** Locations
+*** Locations
 
 #+begin_src ruby
 client.locations.list('COMPANY')
@@ -85,14 +86,14 @@ client.locations.update('COMPANY', City: 'Miami')
 client.locations.delete('COMPANY', 'NUMBER')
 #+end_src
 
-** Contributing
+* Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/lepepe/sagekit. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/lepepe/sagekit/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/lepepe/sagekit. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [[https://github.com/lepepe/sagekit/blob/master/CODE_OF_CONDUCT.md][code of conduct]]
 
-## License
+* License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The gem is available as open source under the terms of the [[https://opensource.org/licenses/MIT][MIT License]].
 
-## Code of Conduct
+* Code of Conduct
 
-Everyone interacting in the Sagekit project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/lepepe/sagekit/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Sagekit project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [[https://github.com/lepepe/sagekit/blob/master/CODE_OF_CONDUCT.md][code of conduct]].
