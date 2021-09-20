@@ -64,7 +64,7 @@ client.customers.update('COMPANY', {})
 client.customers.delete('COMPANY', 'NUMBER')
 #+end_src
 
-*** Customers Groups
+*** Customer Groups
 
 #+begin_src ruby
 client.customer_groups.list('COMPANY')
@@ -72,6 +72,18 @@ client.customer_groups.retreive('COMPANY', 'NUMBER')
 client.customer_groups.create('COMPANY', {})
 client.customer_groups.update('COMPANY', {})
 client.customer_groups.delete('COMPANY', 'NUMBER')
+#+end_src
+
+*** Sales Persons
+
+#+begin_src ruby
+client.sales_persons.list('COMPANY')
+client.sales_persons.retreive('COMPANY', 'NUMBER')
+client.sales_persons.create('COMPANY', {})
+client.sales_persons.update('COMPANY', {})
+client.sales_persons.delete('COMPANY', 'NUMBER')
+client.sales_persons.statistics('COMPANY')
+client.sales_persons.filter_stats('COMPANY', 'SALESPERSON', 'YEAR', 'PERIDO')
 #+end_src
 
 ** AP
@@ -85,6 +97,16 @@ client.vendors.create('COMPANY', {})
 client.vendors.update('COMPANY', {})
 client.vendors.delete('COMPANY', 'NUMBER')
 client.vendors.statistics('COMPANY', 'NUMBER')
+#+end_src
+
+*** Vendor Groups
+
+#+begin_src ruby
+client.vendor_groups.list('COMPANY')
+client.vendor_groups.retreive('COMPANY', 'NUMBER')
+client.vendor_groups.create('COMPANY', {})
+client.vendor_groups.update('COMPANY', {})
+client.vendor_groups.delete('COMPANY', 'NUMBER')
 #+end_src
 
 ** IC

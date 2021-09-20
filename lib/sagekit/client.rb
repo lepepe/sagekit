@@ -29,8 +29,16 @@ module Sagekit
       CustomerGroupsResource.new(self)
     end
 
+    def sales_persons
+      SalesPersonsResource.new(self)
+    end
+
     def vendors
       VendorsResource.new(self)
+    end
+
+    def vendor_groups
+      VendorGroupsResource.new(self)
     end
 
     def items

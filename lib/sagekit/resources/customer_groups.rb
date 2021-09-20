@@ -2,15 +2,15 @@ module Sagekit
   class CustomerGroupsResource < Resource
 
     # Get all records:
-    #   client.customers.list('COMPANY')
+    #   client.customer_groups.list('COMPANY')
     # Get records using a range:
-    #   client.customers.list('COMPANY', '$skip':5, '$top':2)
+    #   client.customer_groups.list('COMPANY', '$skip':5, '$top':2)
     # Get records using filter:
-    #   client.customers.list('COMPANY', '$filter':"City eq 'Miami'")
+    #   client.customer_groups.list('COMPANY', '$filter':"City eq 'Miami'")
     # Get records using complex filter:
-    #   client.customers.list('COMPANY', '$filter':"CustomerNumber eq '112321' and OrderType eq 'Active'")
+    #   client.customer_groups.list('COMPANY', '$filter':"CustomerNumber eq '112321' and OrderType eq 'Active'")
     # Get records with subset of properties:
-    #   client.customers.list('COMPANY', '$select':'OrderNumber, CustomerNumber')
+    #   client.customer_groups.list('COMPANY', '$select':'OrderNumber, CustomerNumber')
     #
     # Query Parameters:
     # $filter -> String
@@ -23,9 +23,9 @@ module Sagekit
     end
 
     # Get record by key:
-    #   client.customers.retrieve('COMPANY', 10021638)
+    #   client.customer_groups.retrieve('COMPANY', 10021638)
     # Get records with subset of properties:
-    #   client.customers.retrieve('COMPANY', '$select':'CustomerNumber, CustomerName')
+    #   client.customer_groups.retrieve('COMPANY', '$select':'CustomerNumber, CustomerName')
     #
     # Query Parameters:
     # $select -> Array
@@ -35,14 +35,14 @@ module Sagekit
 
     # Create new record:
     # body: ruby hash
-    # client.customers.create(CustomerName: 'NAME', GroupCode: 'US', TaxGroup: 'FL', ShortName: 'SHORTNAME')
+    # client.customer_groups.create(CustomerName: 'NAME', GroupCode: 'US', TaxGroup: 'FL', ShortName: 'SHORTNAME')
     def create(company, **attributes)
       Customer.new post_request("#{company}/AR/ARCustomerGroups", body: attributes).body
     end
 
     # Create new record:
     # body: ruby hash
-    # client.customers.create(CustomerName: 'NAME', GroupCode: 'US', TaxGroup: 'FL', ShortName: 'SHORTNAME')
+    # client.customer_groups.create(CustomerName: 'NAME', GroupCode: 'US', TaxGroup: 'FL', ShortName: 'SHORTNAME')
     def update(company, id, **attributes)
       patch_request("#{company}/AR/ARCustomerGroups('#{id}')", body: attributes)
       true

@@ -11,6 +11,7 @@ require "sagekit"
 # require "pry"
 # Pry.start
 
+# Only for test purpose!
 client = Sagekit::Client.new(base_url: 'http://10.255.6.60/Sage300WebApi/v1.0/vertilux', auth: 'Basic QURNSU46Vlg2ODUwTUlBTUk=')
 
 require "irb"
