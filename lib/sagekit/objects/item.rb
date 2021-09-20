@@ -1,4 +1,4 @@
 module Sagekit
-  class IcItem < Object
+  class Item < Object
   end
 end

@@ -12,9 +12,9 @@ module Sagekit
   autoload :SalesOrdersResource, "sagekit/resources/sales_orders"
   autoload :InvoicesResource, "sagekit/resources/invoices"
   autoload :CustomersResource, "sagekit/resources/customers"
+  autoload :CustomerGroupsResource, "sagekit/resources/customer_groups"
   autoload :VendorsResource, "sagekit/resources/vendors"
-  autoload :VendorStatisticsResource, "sagekit/resources/vendor_statistics"
-  autoload :IcItemsResource, "sagekit/resources/ic_items"
+  autoload :ItemsResource, "sagekit/resources/items"
   autoload :LocationsResource, "sagekit/resources/locations"
 
   # Objects
@@ -22,7 +22,6 @@ module Sagekit
   autoload :Invoice, "sagekit/objects/invoices.rb"
   autoload :Customer, "sagekit/objects/customer.rb"
   autoload :Vendor, "sagekit/objects/vendor.rb"
-  autoload :VendorStatistic, "sagekit/objects/vendor_statistic.rb"
-  autoload :IcItem, "sagekit/objects/ic_item.rb"
+  autoload :Item, "sagekit/objects/item.rb"
   autoload :Location, "sagekit/objects/location.rb"
 end

@@ -53,5 +53,9 @@ module Sagekit
       delete_request("#{company}/AP/APVendors('#{vendor_id}')")
       true
     end
+
+    def statistics(company, **params)
+        Vendor.new get_request("#{company}/AP/APVendorStatistics", params: params).body
+    end
   end
 end

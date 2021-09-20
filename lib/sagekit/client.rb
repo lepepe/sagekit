@@ -25,16 +25,16 @@ module Sagekit
       CustomersResource.new(self)
     end
 
+    def customer_groups
+      CustomerGroupsResource.new(self)
+    end
+
     def vendors
       VendorsResource.new(self)
     end
 
-    def vendor_statistics
-      VendorStatisticsResource.new(self)
-    end
-
-    def ic_items
-      IcItemsResource.new(self)
+    def items
+      ItemsResource.new(self)
     end
 
     def locations

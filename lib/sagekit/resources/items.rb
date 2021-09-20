@@ -1,5 +1,5 @@
 module Sagekit
-  class IcItemsResource < Resource
+  class ItemsResource < Resource
 
     # Get all records:
     #   client.items.list('COMPANY')
@@ -19,7 +19,7 @@ module Sagekit
     # $skip - >Integer
     # $count -> boolean
     def list(company, **params)
-        IcItem.new get_request("#{company}/IC/ICItems", params: params).body
+        Item.new get_request("#{company}/IC/ICItems", params: params).body
     end
 
     # Get record by key:
@@ -30,14 +30,14 @@ module Sagekit
     # Query Parameters:
     # $select -> Array
     def retreive(company, item_id, **params)
-        IcItem.new get_request("#{company}/IC/ICItems('#{item_id}')", params: params).body
+        Item.new get_request("#{company}/IC/ICItems('#{item_id}')", params: params).body
     end
 
     # Create new record:
     # body: ruby hash
     # client.items.create(CustomerName: 'NAME', GroupCode: 'US', TaxGroup: 'FL', ShortName: 'SHORTNAME')
     def create(company, **attributes)
-        IcItem.new post_request("#{company}/IC/ICItems", body: attributes).body
+        Item.new post_request("#{company}/IC/ICItems", body: attributes).body
     end
 
     # Create new record:

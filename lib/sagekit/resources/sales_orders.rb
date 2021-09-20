@@ -57,8 +57,8 @@ module Sagekit
     #        ]
     #    }
     #)
-    def create(company, options = {})
-      SalesOrder.new post_request("#{company}/OE/OEOrders", body: options).body
+    def create(company, **attributes)
+      SalesOrder.new post_request("#{company}/OE/OEOrders", body: attributes).body
     end
   end
 end

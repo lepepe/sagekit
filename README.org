@@ -59,9 +59,32 @@ Responses are created as objects like. They're built using OpenStruct so you can
 #+begin_src ruby
 client.customers.list('COMPANY')
 client.customers.retreive('COMPANY', 'NUMBER')
-client.customers.create('COMPANY', CustomerNumber: 'Number', CustomerName: 'Name', GroupCode: 'US')
-client.customers.update('COMPANY', GroupCode: 'EXPORT')
+client.customers.create('COMPANY', {})
+client.customers.update('COMPANY', {})
 client.customers.delete('COMPANY', 'NUMBER')
+#+end_src
+
+*** Customers Groups
+
+#+begin_src ruby
+client.customer_groups.list('COMPANY')
+client.customer_groups.retreive('COMPANY', 'NUMBER')
+client.customer_groups.create('COMPANY', {})
+client.customer_groups.update('COMPANY', {})
+client.customer_groups.delete('COMPANY', 'NUMBER')
+#+end_src
+
+** AP
+
+*** Vendors
+
+#+begin_src ruby
+client.vendors.list('COMPANY')
+client.vendors.retreive('COMPANY', 'NUMBER')
+client.vendors.create('COMPANY', {})
+client.vendors.update('COMPANY', {})
+client.vendors.delete('COMPANY', 'NUMBER')
+client.vendors.statistics('COMPANY', 'NUMBER')
 #+end_src
 
 ** IC
@@ -71,8 +94,8 @@ client.customers.delete('COMPANY', 'NUMBER')
 #+begin_src ruby
 client.items.list('COMPANY')
 client.items.retreive('COMPANY', 'NUMBER')
-client.items.create('COMPANY', ItemNumber: 'Number', Description: 'Description', Category: 'Category')
-client.items.update('COMPANY', GroupCode: 'EXPORT')
+client.items.create('COMPANY', {})
+client.items.update('COMPANY', {})
 client.items.delete('COMPANY', 'NUMBER')
 #+end_src
 
@@ -81,9 +104,26 @@ client.items.delete('COMPANY', 'NUMBER')
 #+begin_src ruby
 client.locations.list('COMPANY')
 client.locations.retreive('COMPANY', 'LOC_KEY')
-client.locations.create('COMPANY', LocationKey: 'LocKey', Name: 'Name', City: 'Broward')
-client.locations.update('COMPANY', City: 'Miami')
+client.locations.create('COMPANY', {})
+client.locations.update('COMPANY', {})
 client.locations.delete('COMPANY', 'NUMBER')
+#+end_src
+
+** OE
+
+*** Sales Orders
+
+#+begin_src ruby
+client.items.list('COMPANY')
+client.items.retreive('COMPANY', 'ID')
+client.items.create('COMPANY', {})
+#+end_src
+
+*** Invoices
+
+#+begin_src ruby
+client.items.list('COMPANY')
+client.items.retreive('COMPANY', 'ID')
 #+end_src
 
 * Contributing
