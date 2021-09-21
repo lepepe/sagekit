@@ -21,12 +21,20 @@ module Sagekit
       InvoicesResource.new(self)
     end
 
+    def sales_history
+      SalesHistoryResource.new(self)
+    end
+
     def customers
       CustomersResource.new(self)
     end
 
     def customer_groups
       CustomerGroupsResource.new(self)
+    end
+
+    def customer_terms
+      CustomerTermsResource.new(self)
     end
 
     def sales_persons
@@ -41,8 +49,16 @@ module Sagekit
       VendorGroupsResource.new(self)
     end
 
+    def vendor_terms
+      VendorTermsResource.new(self)
+    end
+
     def items
       ItemsResource.new(self)
+    end
+
+    def categories
+      CategoriesResource.new(self)
     end
 
     def locations

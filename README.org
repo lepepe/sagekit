@@ -74,6 +74,16 @@ client.customer_groups.update('COMPANY', {})
 client.customer_groups.delete('COMPANY', 'NUMBER')
 #+end_src
 
+*** Customer Terms
+
+#+begin_src ruby
+client.customer_terms.list('COMPANY')
+client.customer_terms.retreive('COMPANY', 'NUMBER')
+client.customer_terms.create('COMPANY', {})
+client.customer_terms.update('COMPANY', {})
+client.customer_terms.delete('COMPANY', 'NUMBER')
+#+end_src
+
 *** Sales Persons
 
 #+begin_src ruby
@@ -109,6 +119,16 @@ client.vendor_groups.update('COMPANY', {})
 client.vendor_groups.delete('COMPANY', 'NUMBER')
 #+end_src
 
+*** Vendor Terms
+
+#+begin_src ruby
+client.vendor_terms.list('COMPANY')
+client.vendor_terms.retreive('COMPANY', 'NUMBER')
+client.vendor_terms.create('COMPANY', {})
+client.vendor_terms.update('COMPANY', {})
+client.vendor_terms.delete('COMPANY', 'NUMBER')
+#+end_src
+
 ** IC
 
 *** Items
@@ -119,6 +139,16 @@ client.items.retreive('COMPANY', 'NUMBER')
 client.items.create('COMPANY', {})
 client.items.update('COMPANY', {})
 client.items.delete('COMPANY', 'NUMBER')
+#+end_src
+
+*** Categories
+
+#+begin_src ruby
+client.categories.list('COMPANY')
+client.categories.retreive('COMPANY', 'NUMBER')
+client.categories.create('COMPANY', {})
+client.categories.update('COMPANY', {})
+client.categories.delete('COMPANY', 'NUMBER')
 #+end_src
 
 *** Locations
@@ -146,6 +176,14 @@ client.items.create('COMPANY', {})
 #+begin_src ruby
 client.items.list('COMPANY')
 client.items.retreive('COMPANY', 'ID')
+#+end_src
+
+*** Sales History
+
+#+begin_src ruby
+client.sales_history.list('COMPANY', {})
+client.sales_history.details('COMPANY', {})
+client.sales_history.stats('COMPANY', {})
 #+end_src
 
 * Contributing
