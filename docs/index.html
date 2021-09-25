@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-24 Fri 22:59 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sagekit</title>
+<meta name="author" content="Jose Perez" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<link rel="stylesheet" type="text/css" href="./docs/css/style.css">
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Sagekit</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgd99a6b7">Installation</a></li>
+<li><a href="#orgfa278cc">Usage</a></li>
+<li><a href="#org0d72daf">Resources</a>
+<ul>
+<li><a href="#orgc49eed2">AR</a>
+<ul>
+<li><a href="#org58cd1ea">Customers</a></li>
+<li><a href="#org3406cdd">Customer Groups</a></li>
+<li><a href="#orgeea863f">Customer Terms</a></li>
+<li><a href="#org4a31bf9">Sales Persons</a></li>
+<li><a href="#org9b90042">Account Sets</a></li>
+</ul>
+</li>
+<li><a href="#orgbf93d17">AP</a>
+<ul>
+<li><a href="#orgc9d7d27">Vendors</a></li>
+<li><a href="#org45bf8fa">Vendor Groups</a></li>
+<li><a href="#org1f62482">Vendor Terms</a></li>
+</ul>
+</li>
+<li><a href="#orgf701ed1">IC</a>
+<ul>
+<li><a href="#orgf1dfa93">Items</a></li>
+<li><a href="#orga6b1fc6">Categories</a></li>
+<li><a href="#orge400bb3">Locations</a></li>
+</ul>
+</li>
+<li><a href="#orge5c4284">OE</a>
+<ul>
+<li><a href="#org7f1b28a">Sales Orders</a></li>
+<li><a href="#org4f08d4c">Invoices</a></li>
+<li><a href="#org5e792b0">Sales History</a></li>
+<li><a href="#orgec057a6">Credit Notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org8eed4ad">Contributing</a></li>
+<li><a href="#orgffeb8eb">License</a></li>
+<li><a href="#org10ec118">Code of Conduct</a></li>
+</ul>
+</div>
+</div>
+<p>
+Sagekit is a ruby gem client library to talk with Sage300 API.
+</p>
+
+<p>
+The Sage 300 Web API makes it easier to create services that integrate with Sage 300 data and business logic. The Web API improves on existing tools for third-party integrations without requiring in-depth understanding of the Sage 300 View protocol and components.
+</p>
+
+<div id="outline-container-orgd99a6b7" class="outline-2">
+<h2 id="orgd99a6b7">Installation</h2>
+<div class="outline-text-2" id="text-orgd99a6b7">
+<p>
+Add this line to your application&rsquo;s Gemfile:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ruby">gem <span style="color: #f1fa8c;">'sagekit'</span>
+</pre>
+</div>
+
+<p>
+And then execute:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">$ bundle install
+</pre>
+</div>
+
+<p>
+Or install it yourself as:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">$ gem install sagekit
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfa278cc" class="outline-2">
+<h2 id="orgfa278cc">Usage</h2>
+<div class="outline-text-2" id="text-orgfa278cc">
+<p>
+Make sure you have Sage300 web services up and runing. Web service is an easy way to communicate with 3rd party application without hampering the existing system &amp; this is the reason we will always suggest to go for web service integration, whenever any customer requires integration.
+</p>
+
+<p>
+Initialize client to make requets:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ruby"><span style="color: #ffb86c;">require</span> <span style="color: #f1fa8c;">'sagekit'</span>
+client = <span style="color: #bd93f9;">Sagekit</span>::<span style="color: #bd93f9;">Client</span>.new(<span style="color: #bd93f9;">URL</span>, <span style="color: #bd93f9;">AUTH</span>)
+client.sales_orders.list(<span style="color: #bd93f9;">COMPANY</span>, <span style="color: #f1fa8c;">'$top'</span>:<span style="color: #bd93f9; font-weight: bold;">10</span>)
+</pre>
+</div>
+
+<p>
+Make sure to change:
+</p>
+<ul class="org-ul">
+<li>URL with the web serive url, ex: <a href="http://10.255.6.60/Sage300WebApi/v1.0/-/">http://10.255.6.60/Sage300WebApi/v1.0/-/</a></li>
+<li>AUTH with the Basic authentication key</li>
+<li>COMPANY with teh company id</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0d72daf" class="outline-2">
+<h2 id="org0d72daf">Resources</h2>
+<div class="outline-text-2" id="text-org0d72daf">
+<p>
+The gem maps as closely as possible to the Sage300 API so you can easily convert API examples to gem code.   
+Responses are created as objects like. They&rsquo;re built using OpenStruct so you can easily access data in a Ruby-ish way.
+</p>
+</div>
+
+<div id="outline-container-orgc49eed2" class="outline-3">
+<h3 id="orgc49eed2">AR</h3>
+<div class="outline-text-3" id="text-orgc49eed2">
+</div>
+<div id="outline-container-org58cd1ea" class="outline-4">
+<h4 id="org58cd1ea">Customers</h4>
+<div class="outline-text-4" id="text-org58cd1ea">
+<div class="org-src-container">
+<pre class="src src-ruby">client.customers.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
+client.customers.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'NUMBER'</span>)
+client.customers.create(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+client.customers.update(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+client.customers.delete(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'NUMBER'</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3406cdd" class="outline-4">
+<h4 id="org3406cdd">Customer Groups</h4>
+<div class="outline-text-4" id="text-org3406cdd">
+<div class="org-src-container">
+<pre class="src src-ruby">client.customer_groups.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
+client.customer_groups.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'NUMBER'</span>)
+client.customer_groups.create(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+client.customer_groups.update(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+client.customer_groups.delete(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'NUMBER'</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgeea863f" class="outline-4">
+<h4 id="orgeea863f">Customer Terms</h4>
+<div class="outline-text-4" id="text-orgeea863f">
+<div class="org-src-container">
+<pre class="src src-ruby">client.customer_terms.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
+client.customer_terms.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'NUMBER'</span>)
+client.customer_terms.create(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+client.customer_terms.update(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+client.customer_terms.delete(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'NUMBER'</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4a31bf9" class="outline-4">
+<h4 id="org4a31bf9">Sales Persons</h4>
+<div class="outline-text-4" id="text-org4a31bf9">
+<div class="org-src-container">
+<pre class="src src-ruby">client.sales_persons.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
+client.sales_persons.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'NUMBER'</span>)
+client.sales_persons.create(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+client.sales_persons.update(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+client.sales_persons.delete(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'NUMBER'</span>)
+client.sales_persons.statistics(<span style="color: #f1fa8c;">'COMPANY'</span>)
+client.sales_persons.filter_stats(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'SALESPERSON'</span>, <span style="color: #f1fa8c;">'YEAR'</span>, <span style="color: #f1fa8c;">'PERIDO'</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9b90042" class="outline-4">
+<h4 id="org9b90042">Account Sets</h4>
+<div class="outline-text-4" id="text-org9b90042">
+<div class="org-src-container">
+<pre class="src src-ruby">client.account_sets.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
+client.account_sets.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'NUMBER'</span>)
+client.account_sets.create(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+client.account_sets.update(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+client.account_sets.delete(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'NUMBER'</span>)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbf93d17" class="outline-3">
+<h3 id="orgbf93d17">AP</h3>
+<div class="outline-text-3" id="text-orgbf93d17">
+</div>
+<div id="outline-container-orgc9d7d27" class="outline-4">
+<h4 id="orgc9d7d27">Vendors</h4>
+<div class="outline-text-4" id="text-orgc9d7d27">
+<div class="org-src-container">
+<pre class="src src-ruby">client.vendors.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
+client.vendors.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'NUMBER'</span>)
+client.vendors.create(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+client.vendors.update(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+client.vendors.delete(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'NUMBER'</span>)
+client.vendors.statistics(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'NUMBER'</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org45bf8fa" class="outline-4">
+<h4 id="org45bf8fa">Vendor Groups</h4>
+<div class="outline-text-4" id="text-org45bf8fa">
+<div class="org-src-container">
+<pre class="src src-ruby">client.vendor_groups.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
+client.vendor_groups.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'NUMBER'</span>)
+client.vendor_groups.create(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+client.vendor_groups.update(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+client.vendor_groups.delete(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'NUMBER'</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1f62482" class="outline-4">
+<h4 id="org1f62482">Vendor Terms</h4>
+<div class="outline-text-4" id="text-org1f62482">
+<div class="org-src-container">
+<pre class="src src-ruby">client.vendor_terms.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
+client.vendor_terms.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'NUMBER'</span>)
+client.vendor_terms.create(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+client.vendor_terms.update(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+client.vendor_terms.delete(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'NUMBER'</span>)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf701ed1" class="outline-3">
+<h3 id="orgf701ed1">IC</h3>
+<div class="outline-text-3" id="text-orgf701ed1">
+</div>
+<div id="outline-container-orgf1dfa93" class="outline-4">
+<h4 id="orgf1dfa93">Items</h4>
+<div class="outline-text-4" id="text-orgf1dfa93">
+<div class="org-src-container">
+<pre class="src src-ruby">client.items.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
+client.items.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'NUMBER'</span>)
+client.items.create(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+client.items.update(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+client.items.delete(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'NUMBER'</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga6b1fc6" class="outline-4">
+<h4 id="orga6b1fc6">Categories</h4>
+<div class="outline-text-4" id="text-orga6b1fc6">
+<div class="org-src-container">
+<pre class="src src-ruby">client.categories.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
+client.categories.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'NUMBER'</span>)
+client.categories.create(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+client.categories.update(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+client.categories.delete(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'NUMBER'</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge400bb3" class="outline-4">
+<h4 id="orge400bb3">Locations</h4>
+<div class="outline-text-4" id="text-orge400bb3">
+<div class="org-src-container">
+<pre class="src src-ruby">client.locations.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
+client.locations.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'LOC_KEY'</span>)
+client.locations.create(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+client.locations.update(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+client.locations.delete(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'NUMBER'</span>)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge5c4284" class="outline-3">
+<h3 id="orge5c4284">OE</h3>
+<div class="outline-text-3" id="text-orge5c4284">
+</div>
+<div id="outline-container-org7f1b28a" class="outline-4">
+<h4 id="org7f1b28a">Sales Orders</h4>
+<div class="outline-text-4" id="text-org7f1b28a">
+<div class="org-src-container">
+<pre class="src src-ruby">client.items.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
+client.items.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'ID'</span>)
+client.items.create(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4f08d4c" class="outline-4">
+<h4 id="org4f08d4c">Invoices</h4>
+<div class="outline-text-4" id="text-org4f08d4c">
+<div class="org-src-container">
+<pre class="src src-ruby">client.items.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
+client.items.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'ID'</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5e792b0" class="outline-4">
+<h4 id="org5e792b0">Sales History</h4>
+<div class="outline-text-4" id="text-org5e792b0">
+<div class="org-src-container">
+<pre class="src src-ruby">client.sales_history.list(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+client.sales_history.details(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+client.sales_history.stats(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgec057a6" class="outline-4">
+<h4 id="orgec057a6">Credit Notes</h4>
+<div class="outline-text-4" id="text-orgec057a6">
+<div class="org-src-container">
+<pre class="src src-ruby">client.credit_notes.list(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+client.credit_notes.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'ID'</span>)
+client.credit_notes.create(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8eed4ad" class="outline-2">
+<h2 id="org8eed4ad">Contributing</h2>
+<div class="outline-text-2" id="text-org8eed4ad">
+<p>
+Bug reports and pull requests are welcome on GitHub at <a href="https://github.com/lepepe/sagekit">https://github.com/lepepe/sagekit</a>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the <a href="https://github.com/lepepe/sagekit/blob/master/CODE_OF_CONDUCT.md">code of conduct</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgffeb8eb" class="outline-2">
+<h2 id="orgffeb8eb">License</h2>
+<div class="outline-text-2" id="text-orgffeb8eb">
+<p>
+The gem is available as open source under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org10ec118" class="outline-2">
+<h2 id="org10ec118">Code of Conduct</h2>
+<div class="outline-text-2" id="text-org10ec118">
+<p>
+Everyone interacting in the Sagekit project&rsquo;s codebases, issue trackers, chat rooms and mailing lists is expected to follow the <a href="https://github.com/lepepe/sagekit/blob/master/CODE_OF_CONDUCT.md">code of conduct</a>.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Jose Perez</p>
+<p class="date">Created: 2021-09-24 Fri 22:59</p>
+</div>
+</body>
+</html>

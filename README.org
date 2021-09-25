@@ -96,6 +96,16 @@ client.sales_persons.statistics('COMPANY')
 client.sales_persons.filter_stats('COMPANY', 'SALESPERSON', 'YEAR', 'PERIDO')
 #+end_src
 
+*** Account Sets
+
+#+begin_src ruby
+client.account_sets.list('COMPANY')
+client.account_sets.retreive('COMPANY', 'NUMBER')
+client.account_sets.create('COMPANY', {})
+client.account_sets.update('COMPANY', {})
+client.account_sets.delete('COMPANY', 'NUMBER')
+#+end_src
+
 ** AP
 
 *** Vendors
@@ -184,6 +194,14 @@ client.items.retreive('COMPANY', 'ID')
 client.sales_history.list('COMPANY', {})
 client.sales_history.details('COMPANY', {})
 client.sales_history.stats('COMPANY', {})
+#+end_src
+
+*** Credit Notes
+
+#+begin_src ruby
+client.credit_notes.list('COMPANY', {})
+client.credit_notes.retreive('COMPANY', 'ID')
+client.credit_notes.create('COMPANY', {})
 #+end_src
 
 * Contributing

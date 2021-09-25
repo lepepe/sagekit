@@ -13,11 +13,13 @@ module Sagekit
   autoload :SalesOrdersResource, "sagekit/resources/sales_orders"
   autoload :InvoicesResource, "sagekit/resources/invoices"
   autoload :SalesHistoryResource, "sagekit/resources/sales_history"
+  autoload :CreditNotesResource, "sagekit/resources/credit_notes"
   # AR Module
   autoload :CustomersResource, "sagekit/resources/customers"
   autoload :CustomerGroupsResource, "sagekit/resources/customer_groups"
   autoload :CustomerTermsResource, "sagekit/resources/customer_terms"
   autoload :SalesPersonsResource, "sagekit/resources/sales_persons"
+  autoload :AccountSetsResource, "sagekit/resources/account_sets"
   # AP Module
   autoload :VendorsResource, "sagekit/resources/vendors"
   autoload :VendorGroupsResource, "sagekit/resources/vendor_groups"
@@ -28,12 +30,18 @@ module Sagekit
   autoload :LocationsResource, "sagekit/resources/locations"
 
   # Objects
+  # OE Module
   autoload :SalesHistory, "sagekit/objects/sales_history.rb"
   autoload :SalesOrder, "sagekit/objects/sales_order.rb"
-  autoload :Invoice, "sagekit/objects/invoices.rb"
+  autoload :Invoice, "sagekit/objects/invoice.rb"
+  autoload :CreditNote, "sagekit/objects/credit_note.rb"
+  # AR Module
   autoload :Customer, "sagekit/objects/customer.rb"
   autoload :SalesPerson, "sagekit/objects/sales_person.rb"
+  autoload :AccountSet, "sagekit/objects/account_set.rb"
+  # AP Module
   autoload :Vendor, "sagekit/objects/vendor.rb"
+  # IC Module
   autoload :Item, "sagekit/objects/item.rb"
   autoload :Category, "sagekit/objects/category.rb"
   autoload :Location, "sagekit/objects/location.rb"

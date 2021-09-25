@@ -37,6 +37,14 @@ module Sagekit
       CustomerTermsResource.new(self)
     end
 
+    def account_sets
+      AccountSetsResource.new(self)
+    end
+
+    def credit_notes
+      CreditNotesResource.new(self)
+    end
+
     def sales_persons
       SalesPersonsResource.new(self)
     end
