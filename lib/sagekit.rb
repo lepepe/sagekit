@@ -14,6 +14,9 @@ module Sagekit
   autoload :InvoicesResource, "sagekit/resources/invoices"
   autoload :SalesHistoryResource, "sagekit/resources/sales_history"
   autoload :CreditNotesResource, "sagekit/resources/credit_notes"
+  # OE Module
+  autoload :PurchaseOrdersResource, "sagekit/resources/purchase_orders"
+  autoload :VendorContractCostsResource, "sagekit/resources/vendor_contract_costs"
   # AR Module
   autoload :CustomersResource, "sagekit/resources/customers"
   autoload :CustomerGroupsResource, "sagekit/resources/customer_groups"
@@ -35,6 +38,9 @@ module Sagekit
   autoload :SalesOrder, "sagekit/objects/sales_order.rb"
   autoload :Invoice, "sagekit/objects/invoice.rb"
   autoload :CreditNote, "sagekit/objects/credit_note.rb"
+  # OE Module
+  autoload :PurchaseOrder, "sagekit/objects/purchase_order.rb"
+  autoload :VendorContractCost, "sagekit/objects/vendor_contract_cost.rb"
   # AR Module
   autoload :Customer, "sagekit/objects/customer.rb"
   autoload :SalesPerson, "sagekit/objects/sales_person.rb"

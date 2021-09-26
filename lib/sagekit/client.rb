@@ -25,6 +25,14 @@ module Sagekit
       SalesHistoryResource.new(self)
     end
 
+    def purchase_orders
+      PurchaseOrdersResource.new(self)
+    end
+
+    def vendor_contract_cost
+      VendorContractCostsResource.new(self)
+    end
+
     def customers
       CustomersResource.new(self)
     end

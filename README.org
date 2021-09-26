@@ -52,7 +52,7 @@ Make sure to change:
 The gem maps as closely as possible to the Sage300 API so you can easily convert API examples to gem code.   
 Responses are created as objects like. They're built using OpenStruct so you can easily access data in a Ruby-ish way.
 
-** AR
+** Account Receivable (AR)
 
 *** Customers
 
@@ -106,7 +106,7 @@ client.account_sets.update('COMPANY', {})
 client.account_sets.delete('COMPANY', 'NUMBER')
 #+end_src
 
-** AP
+** Account Payable (AP)
 
 *** Vendors
 
@@ -139,7 +139,7 @@ client.vendor_terms.update('COMPANY', {})
 client.vendor_terms.delete('COMPANY', 'NUMBER')
 #+end_src
 
-** IC
+** Invenotry COntrol (IC)
 
 *** Items
 
@@ -171,21 +171,21 @@ client.locations.update('COMPANY', {})
 client.locations.delete('COMPANY', 'NUMBER')
 #+end_src
 
-** OE
+** Order Entry (OE)
 
 *** Sales Orders
 
 #+begin_src ruby
-client.items.list('COMPANY')
-client.items.retreive('COMPANY', 'ID')
-client.items.create('COMPANY', {})
+client.sales_orders.list('COMPANY')
+client.sales_orders.retreive('COMPANY', 'ID')
+client.sales_orders.create('COMPANY', {})
 #+end_src
 
 *** Invoices
 
 #+begin_src ruby
-client.items.list('COMPANY')
-client.items.retreive('COMPANY', 'ID')
+client.invoices.list('COMPANY')
+client.invoices.retreive('COMPANY', 'ID')
 #+end_src
 
 *** Sales History
@@ -202,6 +202,26 @@ client.sales_history.stats('COMPANY', {})
 client.credit_notes.list('COMPANY', {})
 client.credit_notes.retreive('COMPANY', 'ID')
 client.credit_notes.create('COMPANY', {})
+#+end_src
+
+** Purchase Orders (PO)
+
+*** Purchase Orders
+
+#+begin_src ruby
+client.purchase_orders.list('COMPANY')
+client.purchase_orders.retreive('COMPANY', 'ID')
+client.purchase_orders.create('COMPANY', {})
+#+end_src
+
+*** Vendor Contract Costs
+
+#+begin_src ruby
+client.vendor_contract_costs.list('COMPANY')
+client.vendor_contract_costs.retreive('COMPANY', 'ITEM_NUMBER', 'VENDOR_NUMBER')
+client.vendor_contract_costs.create('COMPANY', {})
+client.vendor_contract_costs.update('COMPANY', 'ITEM_NUMBER', 'VENDOR_NUMBER', {})
+client.vendor_contract_costs.delete('COMPANY', 'ITEM_NUMBER', 'VENDOR_NUMBER')
 #+end_src
 
 * Contributing
