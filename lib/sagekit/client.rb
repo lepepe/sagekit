@@ -29,6 +29,10 @@ module Sagekit
       PurchaseOrdersResource.new(self)
     end
 
+    def receipts
+      ReceiptsResource.new(self)
+    end
+
     def vendor_contract_cost
       VendorContractCostsResource.new(self)
     end
