@@ -139,7 +139,7 @@ client.vendor_terms.update('COMPANY', {})
 client.vendor_terms.delete('COMPANY', 'NUMBER')
 #+end_src
 
-** Invenotry COntrol (IC)
+** Invenotry Control (IC)
 
 *** Items
 
@@ -212,6 +212,14 @@ client.credit_notes.create('COMPANY', {})
 client.purchase_orders.list('COMPANY')
 client.purchase_orders.retreive('COMPANY', 'ID')
 client.purchase_orders.create('COMPANY', {})
+#+end_src
+
+*** Receipts
+
+#+begin_src ruby
+client.receipts.list('COMPANY')
+client.receipts.retreive('COMPANY', 'ID')
+client.receipts.create('COMPANY', {})
 #+end_src
 
 *** Vendor Contract Costs
