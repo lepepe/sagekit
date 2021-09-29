@@ -3,7 +3,7 @@
 #+EMAIL: jose.perez@vertilux.com
 #+EXPORT_FILE_NAME: ./docs/index.html
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./docs/style.css">
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style.css">
 #+OPTIONS: num:nil
 
 Sagekit is a ruby gem client library to talk with Sage300 API.
