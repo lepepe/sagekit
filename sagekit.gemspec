@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "Client library for Sage300 API."
   spec.description   = "Client library fro Sage300 API."
-  spec.homepage      = "https://github.com/lepepe/sagekit"
+  spec.homepage      = "https://lepepe.github.io/sagekit/"
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 2.4.0"
 
