@@ -8,9 +8,12 @@
 
 Sagekit is a ruby gem client library to talk with Sage300 API.
 
+The gem maps as closely as possible to the Sage300 API so you can easily convert API examples to gem code.
+Responses are created as objects like. They're built using OpenStruct so you can easily access data in a Ruby-ish way.
+
 The Sage 300 Web API makes it easier to create services that integrate with Sage 300 data and business logic. The Web API improves on existing tools for third-party integrations without requiring in-depth understanding of the Sage 300 View protocol and components.
 
-* Installation
+** Installation
 
 Add this line to your application's Gemfile:
 
@@ -30,7 +33,7 @@ Or install it yourself as:
 $ gem install sagekit
 #+end_src
 
-* Usage
+** Usage
 
 Make sure you have Sage300 web services up and runing. Web service is an easy way to communicate with 3rd party application without hampering the existing system & this is the reason we will always suggest to go for web service integration, whenever any customer requires integration.
 
@@ -43,152 +46,229 @@ client.sales_orders.list(COMPANY, '$top':10)
 #+end_src
 
 Make sure to change:
-- URL with the web serive url, ex: [[http://10.255.6.60/Sage300WebApi/v1.0/-/]]
-- AUTH with the Basic authentication key
+- URL with the web serive url
+  Example: ~http://localhost/Sage300WebApi/v1.0/-/SAMLTD/AR/ARCustomers~
+
+  | Component  | Description                                   | Example                 |
+  |------------+-----------------------------------------------+-------------------------|
+  | {protocol} | The application protocol enabled in IIS setup | http, https             |
+  | {host}     | The path to the Web API                       | localhost/Sage300WebApi |
+  | {version}  | The API version                               | v1.0                    |
+  | {company}  | The org ID of the company being requested     | SAMLTD                  |
+  | {module}   | SAge300 application module                    | AR, AP, GL, IC          |
+  | {resource} | The resource entity being requested           | APVendors, ARCustomers  |
+
+  ~{company}~ needs to be pass by the request, ~module~ and ~resource~ the gem will take car of.
+
+- AUTH with the Basic authentication key, Example:
+#+begin_src
+Authorization: Basic QURNSU46QURNSU4=
+(constructed for user "ADMIN" and password "ADMIN")
+#+end_src
+
 - COMPANY with teh company id
 
-* Resources
+** Resources
 
-The gem maps as closely as possible to the Sage300 API so you can easily convert API examples to gem code.   
-Responses are created as objects like. They're built using OpenStruct so you can easily access data in a Ruby-ish way.
+The simplest way to retrieve records of a particular resource is to call a GET (list object).
 
-** Account Receivable (AR)
+#+begin_src ruby
+client.sales_orders.list('COMPANY')
+#+end_src
 
-*** Customers
+Currently the maximum number of records that can be returned for a single GET request is 100. In order to retrieve records beyond the first 100 or find records based on a given set of criteria, the use of query options is required.
+
+To reduce the number of requests necessary for transferring large datasets, the maximum page size can be adjusted from the default value of 100 records per request.
+
+*** Query options
+
+| Component       | Example                             |
+|-----------------+-------------------------------------|
+| {query-options} | $skip:100                           |
+|                 | $filer:"CustomerNumber eq 'LEPEPE'" |
+|                 | $select                             |
+|                 | $top:5                              |
+|                 | $count:true                         |
+
+- ~$skip~
+
+    The =$skip= query option must be a positive integer N that specifies the records beyond which the response feed should start with, effectively skipping N records. This is typically used to retrieve records beyond the top 100, the default maximum limit of a single response page.
+
+   #+begin_src ruby
+    client.sales_orders.list('COMPANY', '$skip':5)
+   #+end_src
+
+- ~$top~
+
+    The =$top= query option must a positive integer N that specifies the maximum number of records the response feed could contain, effectively selecting the first N records.
+
+   #+begin_src ruby
+    client.sales_orders.list('COMPANY', '$top':2)
+   #+end_src
+
+- ~$count~
+
+    The =$count= query option specifies whether a count of all records will be returned as part of the response feed, regardless of how many records are actually returned in the response.
+
+- ~$filter~
+
+    The =$filter= query option specifies a set of criteria that records must satisfy before being returned, effectively allowing the caller to retrieve a subset of the resource collection based on a specified filter.
+    Expressions can reference properties as well as literals. Literal values can be strings enclosed in single quotes, dates, numbers, and boolean values.
+    The following is a list of the operators that are supported in the Sage 300 Web API:
+
+   | Operator | Description           | Example                                                      |
+   |----------+-----------------------+--------------------------------------------------------------|
+   | eq       | equal                 | '$filter':"City eq 'Miami'"                                  |
+   | ne       | not equal             | '$filter':"City ne 'Miami'"                                  |
+   | gt       | greater than          | '$filter':"NumberOfDaysToPay" gt 30"                         |
+   | lt       | less than             | '$filter':"AccountPastDue" lt 90"                            |
+   | le       | less than or equal to | '$filter':"DateLastMaintained le datetime'2015-12-31T12:00'" |
+   | and      | and                   | '$filter':"GroupCode eq 'EXPORT' and OnHold eq 'No’"         |
+   | or       | or                    | '$filter':"City eq 'Los Angeles' or City eq 'Miami'"         |
+
+*Combining query options*
+
+#+begin_src ruby
+client.customers.list('COMPANY', '$filter':"CustomerNumber eq '112321' and OrderType eq 'Active'", '$skip':5, '$top':2)
+#+end_src
+
+*** Account Receivable (AR)
+
+**** Customers
 
 #+begin_src ruby
 client.customers.list('COMPANY')
-client.customers.retreive('COMPANY', 'NUMBER')
+client.customers.retreive('COMPANY', 'IDCUST')
 client.customers.create('COMPANY', {})
 client.customers.update('COMPANY', {})
-client.customers.delete('COMPANY', 'NUMBER')
+client.customers.delete('COMPANY', 'IDCUST')
 #+end_src
 
-*** Customer Groups
+**** Customer Groups
 
 #+begin_src ruby
 client.customer_groups.list('COMPANY')
-client.customer_groups.retreive('COMPANY', 'NUMBER')
+client.customer_groups.retreive('COMPANY', 'GROUPCODE')
 client.customer_groups.create('COMPANY', {})
 client.customer_groups.update('COMPANY', {})
-client.customer_groups.delete('COMPANY', 'NUMBER')
+client.customer_groups.delete('COMPANY', 'GROUPCODE')
 #+end_src
 
-*** Customer Terms
+**** Customer Terms
 
 #+begin_src ruby
 client.customer_terms.list('COMPANY')
-client.customer_terms.retreive('COMPANY', 'NUMBER')
+client.customer_terms.retreive('COMPANY', 'TERMSCODE')
 client.customer_terms.create('COMPANY', {})
 client.customer_terms.update('COMPANY', {})
-client.customer_terms.delete('COMPANY', 'NUMBER')
+client.customer_terms.delete('COMPANY', 'TERMSCODE')
 #+end_src
 
-*** Sales Persons
+**** Sales Persons
 
 #+begin_src ruby
 client.sales_persons.list('COMPANY')
-client.sales_persons.retreive('COMPANY', 'NUMBER')
+client.sales_persons.retreive('COMPANY', 'KEY')
 client.sales_persons.create('COMPANY', {})
 client.sales_persons.update('COMPANY', {})
-client.sales_persons.delete('COMPANY', 'NUMBER')
+client.sales_persons.delete('COMPANY', 'KEY')
 client.sales_persons.statistics('COMPANY')
 client.sales_persons.filter_stats('COMPANY', 'SALESPERSON', 'YEAR', 'PERIDO')
 #+end_src
 
-*** Account Sets
+**** Account Sets
 
 #+begin_src ruby
 client.account_sets.list('COMPANY')
-client.account_sets.retreive('COMPANY', 'NUMBER')
+client.account_sets.retreive('COMPANY', 'KEY')
 client.account_sets.create('COMPANY', {})
 client.account_sets.update('COMPANY', {})
-client.account_sets.delete('COMPANY', 'NUMBER')
+client.account_sets.delete('COMPANY', 'KEY')
 #+end_src
 
-** Account Payable (AP)
+*** Account Payable (AP)
 
-*** Vendors
+**** Vendors
 
 #+begin_src ruby
 client.vendors.list('COMPANY')
-client.vendors.retreive('COMPANY', 'NUMBER')
+client.vendors.retreive('COMPANY', 'VENDCODE')
 client.vendors.create('COMPANY', {})
 client.vendors.update('COMPANY', {})
 client.vendors.delete('COMPANY', 'NUMBER')
-client.vendors.statistics('COMPANY', 'NUMBER')
+client.vendors.statistics('COMPANY', 'VENDCODE')
 #+end_src
 
-*** Vendor Groups
+**** Vendor Groups
 
 #+begin_src ruby
 client.vendor_groups.list('COMPANY')
-client.vendor_groups.retreive('COMPANY', 'NUMBER')
+client.vendor_groups.retreive('COMPANY', 'GROUPCODE')
 client.vendor_groups.create('COMPANY', {})
 client.vendor_groups.update('COMPANY', {})
-client.vendor_groups.delete('COMPANY', 'NUMBER')
+client.vendor_groups.delete('COMPANY', 'GROUPCODE')
 #+end_src
 
-*** Vendor Terms
+**** Vendor Terms
 
 #+begin_src ruby
 client.vendor_terms.list('COMPANY')
-client.vendor_terms.retreive('COMPANY', 'NUMBER')
+client.vendor_terms.retreive('COMPANY', 'TERMSCODE')
 client.vendor_terms.create('COMPANY', {})
 client.vendor_terms.update('COMPANY', {})
-client.vendor_terms.delete('COMPANY', 'NUMBER')
+client.vendor_terms.delete('COMPANY', 'TERMSCODE')
 #+end_src
 
-** Invenotry Control (IC)
+*** Invenotry Control (IC)
 
-*** Items
+**** Items
 
 #+begin_src ruby
 client.items.list('COMPANY')
-client.items.retreive('COMPANY', 'NUMBER')
+client.items.retreive('COMPANY', 'ITEMNO')
 client.items.create('COMPANY', {})
 client.items.update('COMPANY', {})
-client.items.delete('COMPANY', 'NUMBER')
+client.items.delete('COMPANY', 'ITEMNO')
 #+end_src
 
-*** Categories
+**** Categories
 
 #+begin_src ruby
 client.categories.list('COMPANY')
-client.categories.retreive('COMPANY', 'NUMBER')
+client.categories.retreive('COMPANY', 'CATEGORYCODE')
 client.categories.create('COMPANY', {})
 client.categories.update('COMPANY', {})
-client.categories.delete('COMPANY', 'NUMBER')
+client.categories.delete('COMPANY', 'CATEGORYCODE')
 #+end_src
 
-*** Locations
+**** Locations
 
 #+begin_src ruby
 client.locations.list('COMPANY')
-client.locations.retreive('COMPANY', 'LOC_KEY')
+client.locations.retreive('COMPANY', 'LOCATION')
 client.locations.create('COMPANY', {})
 client.locations.update('COMPANY', {})
-client.locations.delete('COMPANY', 'NUMBER')
+client.locations.delete('COMPANY', 'LOCATION')
 #+end_src
 
-** Order Entry (OE)
+*** Order Entry (OE)
 
-*** Sales Orders
+**** Sales Orders
 
 #+begin_src ruby
 client.sales_orders.list('COMPANY')
-client.sales_orders.retreive('COMPANY', 'ID')
+client.sales_orders.retreive('COMPANY', 'ORDERID')
 client.sales_orders.create('COMPANY', {})
 #+end_src
 
-*** Invoices
+**** Invoices
 
 #+begin_src ruby
 client.invoices.list('COMPANY')
-client.invoices.retreive('COMPANY', 'ID')
+client.invoices.retreive('COMPANY', 'INVUNIQ')
 #+end_src
 
-*** Sales History
+**** Sales History
 
 #+begin_src ruby
 client.sales_history.list('COMPANY', {})
@@ -196,50 +276,71 @@ client.sales_history.details('COMPANY', {})
 client.sales_history.stats('COMPANY', {})
 #+end_src
 
-*** Credit Notes
+**** Credit Notes
 
 #+begin_src ruby
 client.credit_notes.list('COMPANY', {})
-client.credit_notes.retreive('COMPANY', 'ID')
+client.credit_notes.retreive('COMPANY', 'CNUNIQ')
 client.credit_notes.create('COMPANY', {})
 #+end_src
 
-** Purchase Orders (PO)
+*** Purchase Orders (PO)
 
-*** Purchase Orders
+**** Purchase Orders
 
 #+begin_src ruby
 client.purchase_orders.list('COMPANY')
-client.purchase_orders.retreive('COMPANY', 'ID')
+client.purchase_orders.retreive('COMPANY', 'SECUENCEID')
 client.purchase_orders.create('COMPANY', {})
 #+end_src
 
-*** Receipts
+**** Receipts
 
 #+begin_src ruby
 client.receipts.list('COMPANY')
-client.receipts.retreive('COMPANY', 'ID')
+client.receipts.retreive('COMPANY', 'SECUENCEID')
 client.receipts.create('COMPANY', {})
 #+end_src
 
-*** Vendor Contract Costs
+**** Vendor Contract Costs
 
 #+begin_src ruby
 client.vendor_contract_costs.list('COMPANY')
-client.vendor_contract_costs.retreive('COMPANY', 'ITEM_NUMBER', 'VENDOR_NUMBER')
+client.vendor_contract_costs.retreive('COMPANY', 'ITEMNO', 'VENDCODE')
 client.vendor_contract_costs.create('COMPANY', {})
-client.vendor_contract_costs.update('COMPANY', 'ITEM_NUMBER', 'VENDOR_NUMBER', {})
-client.vendor_contract_costs.delete('COMPANY', 'ITEM_NUMBER', 'VENDOR_NUMBER')
+client.vendor_contract_costs.update('COMPANY', 'ITEMNO', 'VENDCODE', {})
+client.vendor_contract_costs.delete('COMPANY', 'ITEMNO', 'VENDCODE')
 #+end_src
 
-* Contributing
+** Performance tips
+It is possible to adjust the performance of Sage 300 Web API if improvements are required for integration purposes.
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/lepepe/sagekit. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [[https://github.com/lepepe/sagekit/blob/master/CODE_OF_CONDUCT.md][code of conduct]]
+*** Increase page size for requets
+When large amounts of records need to be retrieved through Sage 300 Web API, the page size setting can be increased to reduce the number of GET requests and thus reduce the overall time for the entire process.
 
-* License
+In order to increase the page size setting, you can use a text editor to open the =Web.config= file located in the =Online\WebApi= folder under your Sage 300 installation folder. Search for the line in this file that contains the following text:
+
+#+begin_src xml
+<add key="PageSize" value="100" />
+#+end_src
+
+Increase the value to the required page size. The recommended setting for large numbers of records is 1000.
+
+*** Change IIS idle time
+By default, IIS terminates a web application after 20 minutes of inactivity. This means that if Sage 300 Web API requests are not made within 20 minutes of one another, a request will take longer than usual to process. To curb this behavior, the IIS application pool Idle Time-out setting can be adjusted.
+
+To increase the Time-out time and Time-out Action:
+1. Open IIS Manager
+2. In Application Pools, select Sage300 Pool.
+3. In the Actions pane, click Advanced Settings.
+4. In the Process Model section, change the Idle Time-out Action from Terminate to Suspend.
+5. The Idle Time-out time should be increased to a more reasonable amount. 1447 minutes is the recommended value, as it is greater than a single day.
+
+** Contributing
+
+Everyone is encouraged to help improve this project. Bug reports and pull requests are welcome at [[https://github.com/lepepe/sagekit/pulls]].
+Feel free to open an [[https://github.com/lepepe/sagekit/issues][issue]] to get feedback on your idea before spending too much time on it.
+
+** License
 
 The gem is available as open source under the terms of the [[https://opensource.org/licenses/MIT][MIT License]].
-
-* Code of Conduct
-
-Everyone interacting in the Sagekit project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [[https://github.com/lepepe/sagekit/blob/master/CODE_OF_CONDUCT.md][code of conduct]].
