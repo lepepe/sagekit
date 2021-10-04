@@ -344,3 +344,10 @@ Feel free to open an [[https://github.com/lepepe/sagekit/issues][issue]] to get 
 ** License
 
 The gem is available as open source under the terms of the [[https://opensource.org/licenses/MIT][MIT License]].
+
+** TODO Sagekit todo list.
++ [ ] Testing API requests
++ [ ] Add endpoints for:
+  + [ ] Common Services
+  + [ ] General Ledger
+  + [ ] Complete other module's endpoints
