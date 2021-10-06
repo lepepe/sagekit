@@ -80,3 +80,12 @@ a:visited{
     margin-bottom: 0px;
     color: #00f769;
 }
+
+.figure {
+    padding: 0;
+}
+
+.figure p {
+    text-align: left;
+    padding: 0;
+}

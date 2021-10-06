@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-01 Fri 22:14 -->
+<!-- 2021-10-05 Tue 13:18 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Sagekit</title>
@@ -208,66 +208,72 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgcb01d98">Installation</a></li>
-<li><a href="#org222771d">Usage</a></li>
-<li><a href="#orgc7d7106">Resources</a>
+<li><a href="#org44e9339">Installation</a></li>
+<li><a href="#orgb6f93a8">Usage</a></li>
+<li><a href="#orga2430fd">Resources</a>
 <ul>
-<li><a href="#orgb897422">Query options</a></li>
-<li><a href="#org475fbd7">Account Receivable (AR)</a>
+<li><a href="#org7d05f7c">Query options</a></li>
+<li><a href="#org97fa678">Account Receivable (AR)</a>
 <ul>
-<li><a href="#org1b14d97">Customers</a></li>
-<li><a href="#org2fba29e">Customer Groups</a></li>
-<li><a href="#org29391c6">Customer Terms</a></li>
-<li><a href="#orgef2983c">Sales Persons</a></li>
-<li><a href="#org80a6c67">Account Sets</a></li>
+<li><a href="#orge4b2592">Customers</a></li>
+<li><a href="#org689ae49">Customer Groups</a></li>
+<li><a href="#org0e79c54">Customer Terms</a></li>
+<li><a href="#org1306e32">Sales Persons</a></li>
+<li><a href="#org86900a4">Account Sets</a></li>
 </ul>
 </li>
-<li><a href="#orgfaaf5df">Account Payable (AP)</a>
+<li><a href="#org085c957">Account Payable (AP)</a>
 <ul>
-<li><a href="#org089dfe0">Vendors</a></li>
-<li><a href="#org28d770c">Vendor Groups</a></li>
-<li><a href="#org615c586">Vendor Terms</a></li>
+<li><a href="#org4e284e4">Vendors</a></li>
+<li><a href="#org3618d86">Vendor Groups</a></li>
+<li><a href="#orga093735">Vendor Terms</a></li>
 </ul>
 </li>
-<li><a href="#orgf358b63">Invenotry Control (IC)</a>
+<li><a href="#org668336b">Invenotry Control (IC)</a>
 <ul>
-<li><a href="#org16fb44a">Items</a></li>
-<li><a href="#org0242553">Categories</a></li>
-<li><a href="#org6d39438">Locations</a></li>
+<li><a href="#org13db496">Items</a></li>
+<li><a href="#orgee56eed">Categories</a></li>
+<li><a href="#org525807c">Locations</a></li>
 </ul>
 </li>
-<li><a href="#org2e1012b">Order Entry (OE)</a>
+<li><a href="#orge20dd5f">Order Entry (OE)</a>
 <ul>
-<li><a href="#org4f68767">Sales Orders</a></li>
-<li><a href="#org876a864">Invoices</a></li>
-<li><a href="#org5f84dbf">Sales History</a></li>
-<li><a href="#orgdf93fd0">Credit Notes</a></li>
+<li><a href="#org43ae15c">Sales Orders</a></li>
+<li><a href="#org312d775">Invoices</a></li>
+<li><a href="#org207c4f6">Sales History</a></li>
+<li><a href="#orge52ffab">Credit Notes</a></li>
 </ul>
 </li>
-<li><a href="#org52dd5a9">Purchase Orders (PO)</a>
+<li><a href="#orgcd17e19">Purchase Orders (PO)</a>
 <ul>
-<li><a href="#org446c81c">Purchase Orders</a></li>
-<li><a href="#orgb2f9550">Receipts</a></li>
-<li><a href="#org335f888">Vendor Contract Costs</a></li>
+<li><a href="#org195066e">Purchase Orders</a></li>
+<li><a href="#org61526f1">Receipts</a></li>
+<li><a href="#org2130aeb">Vendor Contract Costs</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org92d70b1">Performance tips</a>
+<li><a href="#orgb522491">Performance tips</a>
 <ul>
-<li><a href="#org508a910">Increase page size for requets</a></li>
-<li><a href="#org9064c86">Change IIS idle time</a></li>
+<li><a href="#org22982a1">Increase page size for requets</a></li>
+<li><a href="#org80d935f">Change IIS idle time</a></li>
 </ul>
 </li>
-<li><a href="#orgd1184e8">Contributing</a></li>
-<li><a href="#org0425f55">License</a></li>
-<li><a href="#org96c7c1c"><span class="todo TODO">TODO</span> Sagekit todo list.</a></li>
+<li><a href="#org132f73b">Contributing</a></li>
+<li><a href="#orgbbcccac">License</a></li>
+<li><a href="#org4366898"><span class="todo TODO">TODO</span> Sagekit todo list.</a></li>
 </ul>
 </div>
 </div>
 <p>
 Sagekit is a ruby gem client library to talk with Sage300 API.
 </p>
+
+
+<div id="orgfa220dd" class="figure">
+<p><img src="https://badge.fury.io/rb/sagekit.svg" alt="sagekit.svg" />
+</p>
+</div>
 
 <p>
 The gem maps as closely as possible to the Sage300 API so you can easily convert API examples to gem code.
@@ -278,9 +284,9 @@ Responses are created as objects like. They&rsquo;re built using OpenStruct so y
 The Sage 300 Web API makes it easier to create services that integrate with Sage 300 data and business logic. The Web API improves on existing tools for third-party integrations without requiring in-depth understanding of the Sage 300 View protocol and components.
 </p>
 
-<div id="outline-container-orgcb01d98" class="outline-2">
-<h2 id="orgcb01d98">Installation</h2>
-<div class="outline-text-2" id="text-orgcb01d98">
+<div id="outline-container-org44e9339" class="outline-2">
+<h2 id="org44e9339">Installation</h2>
+<div class="outline-text-2" id="text-org44e9339">
 <p>
 Add this line to your application&rsquo;s Gemfile:
 </p>
@@ -310,9 +316,9 @@ Or install it yourself as:
 </div>
 </div>
 
-<div id="outline-container-org222771d" class="outline-2">
-<h2 id="org222771d">Usage</h2>
-<div class="outline-text-2" id="text-org222771d">
+<div id="outline-container-orgb6f93a8" class="outline-2">
+<h2 id="orgb6f93a8">Usage</h2>
+<div class="outline-text-2" id="text-orgb6f93a8">
 <p>
 Make sure you have Sage300 web services up and runing. Web service is an easy way to communicate with 3rd party application without hampering the existing system &amp; this is the reason we will always suggest to go for web service integration, whenever any customer requires integration.
 </p>
@@ -410,9 +416,9 @@ Authorization: Basic QURNSU46QURNSU4=
 </div>
 </div>
 
-<div id="outline-container-orgc7d7106" class="outline-2">
-<h2 id="orgc7d7106">Resources</h2>
-<div class="outline-text-2" id="text-orgc7d7106">
+<div id="outline-container-orga2430fd" class="outline-2">
+<h2 id="orga2430fd">Resources</h2>
+<div class="outline-text-2" id="text-orga2430fd">
 <p>
 The simplest way to retrieve records of a particular resource is to call a GET (list object).
 </p>
@@ -431,9 +437,9 @@ To reduce the number of requests necessary for transferring large datasets, the 
 </p>
 </div>
 
-<div id="outline-container-orgb897422" class="outline-3">
-<h3 id="orgb897422">Query options</h3>
-<div class="outline-text-3" id="text-orgb897422">
+<div id="outline-container-org7d05f7c" class="outline-3">
+<h3 id="org7d05f7c">Query options</h3>
+<div class="outline-text-3" id="text-org7d05f7c">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -595,13 +601,13 @@ The following is a list of the operators that are supported in the Sage 300 Web 
 </div>
 </div>
 
-<div id="outline-container-org475fbd7" class="outline-3">
-<h3 id="org475fbd7">Account Receivable (AR)</h3>
-<div class="outline-text-3" id="text-org475fbd7">
+<div id="outline-container-org97fa678" class="outline-3">
+<h3 id="org97fa678">Account Receivable (AR)</h3>
+<div class="outline-text-3" id="text-org97fa678">
 </div>
-<div id="outline-container-org1b14d97" class="outline-4">
-<h4 id="org1b14d97">Customers</h4>
-<div class="outline-text-4" id="text-org1b14d97">
+<div id="outline-container-orge4b2592" class="outline-4">
+<h4 id="orge4b2592">Customers</h4>
+<div class="outline-text-4" id="text-orge4b2592">
 <div class="org-src-container">
 <pre class="src src-ruby">client.customers.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
 client.customers.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'IDCUST'</span>)
@@ -613,9 +619,9 @@ client.customers.delete(<span style="color: #f1fa8c;">'COMPANY'</span>, <span st
 </div>
 </div>
 
-<div id="outline-container-org2fba29e" class="outline-4">
-<h4 id="org2fba29e">Customer Groups</h4>
-<div class="outline-text-4" id="text-org2fba29e">
+<div id="outline-container-org689ae49" class="outline-4">
+<h4 id="org689ae49">Customer Groups</h4>
+<div class="outline-text-4" id="text-org689ae49">
 <div class="org-src-container">
 <pre class="src src-ruby">client.customer_groups.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
 client.customer_groups.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'GROUPCODE'</span>)
@@ -627,9 +633,9 @@ client.customer_groups.delete(<span style="color: #f1fa8c;">'COMPANY'</span>, <s
 </div>
 </div>
 
-<div id="outline-container-org29391c6" class="outline-4">
-<h4 id="org29391c6">Customer Terms</h4>
-<div class="outline-text-4" id="text-org29391c6">
+<div id="outline-container-org0e79c54" class="outline-4">
+<h4 id="org0e79c54">Customer Terms</h4>
+<div class="outline-text-4" id="text-org0e79c54">
 <div class="org-src-container">
 <pre class="src src-ruby">client.customer_terms.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
 client.customer_terms.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'TERMSCODE'</span>)
@@ -641,9 +647,9 @@ client.customer_terms.delete(<span style="color: #f1fa8c;">'COMPANY'</span>, <sp
 </div>
 </div>
 
-<div id="outline-container-orgef2983c" class="outline-4">
-<h4 id="orgef2983c">Sales Persons</h4>
-<div class="outline-text-4" id="text-orgef2983c">
+<div id="outline-container-org1306e32" class="outline-4">
+<h4 id="org1306e32">Sales Persons</h4>
+<div class="outline-text-4" id="text-org1306e32">
 <div class="org-src-container">
 <pre class="src src-ruby">client.sales_persons.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
 client.sales_persons.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'KEY'</span>)
@@ -657,9 +663,9 @@ client.sales_persons.filter_stats(<span style="color: #f1fa8c;">'COMPANY'</span>
 </div>
 </div>
 
-<div id="outline-container-org80a6c67" class="outline-4">
-<h4 id="org80a6c67">Account Sets</h4>
-<div class="outline-text-4" id="text-org80a6c67">
+<div id="outline-container-org86900a4" class="outline-4">
+<h4 id="org86900a4">Account Sets</h4>
+<div class="outline-text-4" id="text-org86900a4">
 <div class="org-src-container">
 <pre class="src src-ruby">client.account_sets.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
 client.account_sets.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'KEY'</span>)
@@ -672,13 +678,13 @@ client.account_sets.delete(<span style="color: #f1fa8c;">'COMPANY'</span>, <span
 </div>
 </div>
 
-<div id="outline-container-orgfaaf5df" class="outline-3">
-<h3 id="orgfaaf5df">Account Payable (AP)</h3>
-<div class="outline-text-3" id="text-orgfaaf5df">
+<div id="outline-container-org085c957" class="outline-3">
+<h3 id="org085c957">Account Payable (AP)</h3>
+<div class="outline-text-3" id="text-org085c957">
 </div>
-<div id="outline-container-org089dfe0" class="outline-4">
-<h4 id="org089dfe0">Vendors</h4>
-<div class="outline-text-4" id="text-org089dfe0">
+<div id="outline-container-org4e284e4" class="outline-4">
+<h4 id="org4e284e4">Vendors</h4>
+<div class="outline-text-4" id="text-org4e284e4">
 <div class="org-src-container">
 <pre class="src src-ruby">client.vendors.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
 client.vendors.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'VENDCODE'</span>)
@@ -691,9 +697,9 @@ client.vendors.statistics(<span style="color: #f1fa8c;">'COMPANY'</span>, <span 
 </div>
 </div>
 
-<div id="outline-container-org28d770c" class="outline-4">
-<h4 id="org28d770c">Vendor Groups</h4>
-<div class="outline-text-4" id="text-org28d770c">
+<div id="outline-container-org3618d86" class="outline-4">
+<h4 id="org3618d86">Vendor Groups</h4>
+<div class="outline-text-4" id="text-org3618d86">
 <div class="org-src-container">
 <pre class="src src-ruby">client.vendor_groups.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
 client.vendor_groups.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'GROUPCODE'</span>)
@@ -705,9 +711,9 @@ client.vendor_groups.delete(<span style="color: #f1fa8c;">'COMPANY'</span>, <spa
 </div>
 </div>
 
-<div id="outline-container-org615c586" class="outline-4">
-<h4 id="org615c586">Vendor Terms</h4>
-<div class="outline-text-4" id="text-org615c586">
+<div id="outline-container-orga093735" class="outline-4">
+<h4 id="orga093735">Vendor Terms</h4>
+<div class="outline-text-4" id="text-orga093735">
 <div class="org-src-container">
 <pre class="src src-ruby">client.vendor_terms.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
 client.vendor_terms.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'TERMSCODE'</span>)
@@ -720,13 +726,13 @@ client.vendor_terms.delete(<span style="color: #f1fa8c;">'COMPANY'</span>, <span
 </div>
 </div>
 
-<div id="outline-container-orgf358b63" class="outline-3">
-<h3 id="orgf358b63">Invenotry Control (IC)</h3>
-<div class="outline-text-3" id="text-orgf358b63">
+<div id="outline-container-org668336b" class="outline-3">
+<h3 id="org668336b">Invenotry Control (IC)</h3>
+<div class="outline-text-3" id="text-org668336b">
 </div>
-<div id="outline-container-org16fb44a" class="outline-4">
-<h4 id="org16fb44a">Items</h4>
-<div class="outline-text-4" id="text-org16fb44a">
+<div id="outline-container-org13db496" class="outline-4">
+<h4 id="org13db496">Items</h4>
+<div class="outline-text-4" id="text-org13db496">
 <div class="org-src-container">
 <pre class="src src-ruby">client.items.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
 client.items.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'ITEMNO'</span>)
@@ -738,9 +744,9 @@ client.items.delete(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style=
 </div>
 </div>
 
-<div id="outline-container-org0242553" class="outline-4">
-<h4 id="org0242553">Categories</h4>
-<div class="outline-text-4" id="text-org0242553">
+<div id="outline-container-orgee56eed" class="outline-4">
+<h4 id="orgee56eed">Categories</h4>
+<div class="outline-text-4" id="text-orgee56eed">
 <div class="org-src-container">
 <pre class="src src-ruby">client.categories.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
 client.categories.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'CATEGORYCODE'</span>)
@@ -752,9 +758,9 @@ client.categories.delete(<span style="color: #f1fa8c;">'COMPANY'</span>, <span s
 </div>
 </div>
 
-<div id="outline-container-org6d39438" class="outline-4">
-<h4 id="org6d39438">Locations</h4>
-<div class="outline-text-4" id="text-org6d39438">
+<div id="outline-container-org525807c" class="outline-4">
+<h4 id="org525807c">Locations</h4>
+<div class="outline-text-4" id="text-org525807c">
 <div class="org-src-container">
 <pre class="src src-ruby">client.locations.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
 client.locations.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'LOCATION'</span>)
@@ -767,13 +773,13 @@ client.locations.delete(<span style="color: #f1fa8c;">'COMPANY'</span>, <span st
 </div>
 </div>
 
-<div id="outline-container-org2e1012b" class="outline-3">
-<h3 id="org2e1012b">Order Entry (OE)</h3>
-<div class="outline-text-3" id="text-org2e1012b">
+<div id="outline-container-orge20dd5f" class="outline-3">
+<h3 id="orge20dd5f">Order Entry (OE)</h3>
+<div class="outline-text-3" id="text-orge20dd5f">
 </div>
-<div id="outline-container-org4f68767" class="outline-4">
-<h4 id="org4f68767">Sales Orders</h4>
-<div class="outline-text-4" id="text-org4f68767">
+<div id="outline-container-org43ae15c" class="outline-4">
+<h4 id="org43ae15c">Sales Orders</h4>
+<div class="outline-text-4" id="text-org43ae15c">
 <div class="org-src-container">
 <pre class="src src-ruby">client.sales_orders.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
 client.sales_orders.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'ORDERID'</span>)
@@ -783,9 +789,9 @@ client.sales_orders.create(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
 </div>
 </div>
 
-<div id="outline-container-org876a864" class="outline-4">
-<h4 id="org876a864">Invoices</h4>
-<div class="outline-text-4" id="text-org876a864">
+<div id="outline-container-org312d775" class="outline-4">
+<h4 id="org312d775">Invoices</h4>
+<div class="outline-text-4" id="text-org312d775">
 <div class="org-src-container">
 <pre class="src src-ruby">client.invoices.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
 client.invoices.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'INVUNIQ'</span>)
@@ -794,9 +800,9 @@ client.invoices.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span s
 </div>
 </div>
 
-<div id="outline-container-org5f84dbf" class="outline-4">
-<h4 id="org5f84dbf">Sales History</h4>
-<div class="outline-text-4" id="text-org5f84dbf">
+<div id="outline-container-org207c4f6" class="outline-4">
+<h4 id="org207c4f6">Sales History</h4>
+<div class="outline-text-4" id="text-org207c4f6">
 <div class="org-src-container">
 <pre class="src src-ruby">client.sales_history.list(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
 client.sales_history.details(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
@@ -806,9 +812,9 @@ client.sales_history.stats(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
 </div>
 </div>
 
-<div id="outline-container-orgdf93fd0" class="outline-4">
-<h4 id="orgdf93fd0">Credit Notes</h4>
-<div class="outline-text-4" id="text-orgdf93fd0">
+<div id="outline-container-orge52ffab" class="outline-4">
+<h4 id="orge52ffab">Credit Notes</h4>
+<div class="outline-text-4" id="text-orge52ffab">
 <div class="org-src-container">
 <pre class="src src-ruby">client.credit_notes.list(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
 client.credit_notes.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'CNUNIQ'</span>)
@@ -819,13 +825,13 @@ client.credit_notes.create(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
 </div>
 </div>
 
-<div id="outline-container-org52dd5a9" class="outline-3">
-<h3 id="org52dd5a9">Purchase Orders (PO)</h3>
-<div class="outline-text-3" id="text-org52dd5a9">
+<div id="outline-container-orgcd17e19" class="outline-3">
+<h3 id="orgcd17e19">Purchase Orders (PO)</h3>
+<div class="outline-text-3" id="text-orgcd17e19">
 </div>
-<div id="outline-container-org446c81c" class="outline-4">
-<h4 id="org446c81c">Purchase Orders</h4>
-<div class="outline-text-4" id="text-org446c81c">
+<div id="outline-container-org195066e" class="outline-4">
+<h4 id="org195066e">Purchase Orders</h4>
+<div class="outline-text-4" id="text-org195066e">
 <div class="org-src-container">
 <pre class="src src-ruby">client.purchase_orders.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
 client.purchase_orders.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'SECUENCEID'</span>)
@@ -835,9 +841,9 @@ client.purchase_orders.create(<span style="color: #f1fa8c;">'COMPANY'</span>, {}
 </div>
 </div>
 
-<div id="outline-container-orgb2f9550" class="outline-4">
-<h4 id="orgb2f9550">Receipts</h4>
-<div class="outline-text-4" id="text-orgb2f9550">
+<div id="outline-container-org61526f1" class="outline-4">
+<h4 id="org61526f1">Receipts</h4>
+<div class="outline-text-4" id="text-org61526f1">
 <div class="org-src-container">
 <pre class="src src-ruby">client.receipts.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
 client.receipts.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'SECUENCEID'</span>)
@@ -847,9 +853,9 @@ client.receipts.create(<span style="color: #f1fa8c;">'COMPANY'</span>, {})
 </div>
 </div>
 
-<div id="outline-container-org335f888" class="outline-4">
-<h4 id="org335f888">Vendor Contract Costs</h4>
-<div class="outline-text-4" id="text-org335f888">
+<div id="outline-container-org2130aeb" class="outline-4">
+<h4 id="org2130aeb">Vendor Contract Costs</h4>
+<div class="outline-text-4" id="text-org2130aeb">
 <div class="org-src-container">
 <pre class="src src-ruby">client.vendor_contract_costs.list(<span style="color: #f1fa8c;">'COMPANY'</span>)
 client.vendor_contract_costs.retreive(<span style="color: #f1fa8c;">'COMPANY'</span>, <span style="color: #f1fa8c;">'ITEMNO'</span>, <span style="color: #f1fa8c;">'VENDCODE'</span>)
@@ -863,17 +869,17 @@ client.vendor_contract_costs.delete(<span style="color: #f1fa8c;">'COMPANY'</spa
 </div>
 </div>
 
-<div id="outline-container-org92d70b1" class="outline-2">
-<h2 id="org92d70b1">Performance tips</h2>
-<div class="outline-text-2" id="text-org92d70b1">
+<div id="outline-container-orgb522491" class="outline-2">
+<h2 id="orgb522491">Performance tips</h2>
+<div class="outline-text-2" id="text-orgb522491">
 <p>
 It is possible to adjust the performance of Sage 300 Web API if improvements are required for integration purposes.
 </p>
 </div>
 
-<div id="outline-container-org508a910" class="outline-3">
-<h3 id="org508a910">Increase page size for requets</h3>
-<div class="outline-text-3" id="text-org508a910">
+<div id="outline-container-org22982a1" class="outline-3">
+<h3 id="org22982a1">Increase page size for requets</h3>
+<div class="outline-text-3" id="text-org22982a1">
 <p>
 When large amounts of records need to be retrieved through Sage 300 Web API, the page size setting can be increased to reduce the number of GET requests and thus reduce the overall time for the entire process.
 </p>
@@ -893,9 +899,9 @@ Increase the value to the required page size. The recommended setting for large 
 </div>
 </div>
 
-<div id="outline-container-org9064c86" class="outline-3">
-<h3 id="org9064c86">Change IIS idle time</h3>
-<div class="outline-text-3" id="text-org9064c86">
+<div id="outline-container-org80d935f" class="outline-3">
+<h3 id="org80d935f">Change IIS idle time</h3>
+<div class="outline-text-3" id="text-org80d935f">
 <p>
 By default, IIS terminates a web application after 20 minutes of inactivity. This means that if Sage 300 Web API requests are not made within 20 minutes of one another, a request will take longer than usual to process. To curb this behavior, the IIS application pool Idle Time-out setting can be adjusted.
 </p>
@@ -914,9 +920,9 @@ To increase the Time-out time and Time-out Action:
 </div>
 </div>
 
-<div id="outline-container-orgd1184e8" class="outline-2">
-<h2 id="orgd1184e8">Contributing</h2>
-<div class="outline-text-2" id="text-orgd1184e8">
+<div id="outline-container-org132f73b" class="outline-2">
+<h2 id="org132f73b">Contributing</h2>
+<div class="outline-text-2" id="text-org132f73b">
 <p>
 Everyone is encouraged to help improve this project. Bug reports and pull requests are welcome at <a href="https://github.com/lepepe/sagekit/pulls">https://github.com/lepepe/sagekit/pulls</a>.
 Feel free to open an <a href="https://github.com/lepepe/sagekit/issues">issue</a> to get feedback on your idea before spending too much time on it.
@@ -924,25 +930,25 @@ Feel free to open an <a href="https://github.com/lepepe/sagekit/issues">issue</a
 </div>
 </div>
 
-<div id="outline-container-org0425f55" class="outline-2">
-<h2 id="org0425f55">License</h2>
-<div class="outline-text-2" id="text-org0425f55">
+<div id="outline-container-orgbbcccac" class="outline-2">
+<h2 id="orgbbcccac">License</h2>
+<div class="outline-text-2" id="text-orgbbcccac">
 <p>
 The gem is available as open source under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org96c7c1c" class="outline-2">
-<h2 id="org96c7c1c"><span class="todo TODO">TODO</span> Sagekit todo list.</h2>
-<div class="outline-text-2" id="text-org96c7c1c">
+<div id="outline-container-org4366898" class="outline-2">
+<h2 id="org4366898"><span class="todo TODO">TODO</span> Sagekit todo list.</h2>
+<div class="outline-text-2" id="text-org4366898">
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> Testing API requests</li>
-<li class="off"><code>[&#xa0;]</code> Add endpints for:
+<li class="off"><code>[&#xa0;]</code> Add endpoints for:
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> Common Services</li>
 <li class="off"><code>[&#xa0;]</code> General Ledger</li>
-<li class="off"><code>[&#xa0;]</code> Complete other module&rsquo;s endpints</li>
+<li class="off"><code>[&#xa0;]</code> Complete other module&rsquo;s endpoints</li>
 </ul></li>
 </ul>
 </div>
@@ -950,7 +956,7 @@ The gem is available as open source under the terms of the <a href="https://open
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jose Perez</p>
-<p class="date">Created: 2021-10-01 Fri 22:14</p>
+<p class="date">Created: 2021-10-05 Tue 13:18</p>
 </div>
 </body>
 </html>

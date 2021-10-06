@@ -8,6 +8,8 @@
 
 Sagekit is a ruby gem client library to talk with Sage300 API.
 
+[[https://badge.fury.io/rb/sagekit.svg]]
+
 The gem maps as closely as possible to the Sage300 API so you can easily convert API examples to gem code.
 Responses are created as objects like. They're built using OpenStruct so you can easily access data in a Ruby-ish way.
 
