@@ -263,6 +263,11 @@ client.sales_orders.retreive('COMPANY', 'ORDERID')
 client.sales_orders.create('COMPANY', {})
 #+end_src
 
+Create sales order passing json payload instead of ruby atributes.
+#+begin_src ruby
+client.sales_orders.create_json('COMPANY', {})
+#+end_src
+
 **** Invoices
 
 #+begin_src ruby
