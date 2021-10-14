@@ -2,7 +2,7 @@ module Sagekit
   class SalesOrdersResource < Resource
 
     def list(company, **params)
-      SalesOrder.new get_request("#{company}/OE/OEOrders", params: params).body
+      Collection.from_response get_request("#{company}/OE/OEOrders?$count=true", params: params), type: Invoice
     end
 
     def retreive(company, order_id, **params)

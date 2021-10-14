@@ -2,15 +2,15 @@ module Sagekit
   class ItemsResource < Resource
 
     def list(company, **params)
-        Item.new get_request("#{company}/IC/ICItems", params: params).body
+      Collection.from_response get_request("#{company}/IC/ICItems?$count=true", params: params), type: Item
     end
 
     def retreive(company, item_id, **params)
-        Item.new get_request("#{company}/IC/ICItems('#{item_id}')", params: params).body
+      Item.new get_request("#{company}/IC/ICItems('#{item_id}')", params: params).body
     end
 
     def create(company, **attributes)
-        Item.new post_request("#{company}/IC/ICItems", body: attributes).body
+      Item.new post_request("#{company}/IC/ICItems", body: attributes).body
     end
 
     def update(company, item_id, **attributes)

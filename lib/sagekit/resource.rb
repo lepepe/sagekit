@@ -40,6 +40,8 @@ module Sagekit
         raise Error, "#{response.body}"
       when 404
         raise Error, "#{response.body}"
+      when 409
+        raise Error, "#{response.body}"
       when 429
         raise Error, "#{response.body}"
       when 500

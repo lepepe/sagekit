@@ -2,7 +2,7 @@ module Sagekit
   class PurchaseOrdersResource < Resource
 
     def list(company, **params)
-      PurchaseOrder.new get_request("#{company}/PO/POPurchaseOrders", params: params).body
+      Collection.from_response get_request("#{company}/PO/POPurchaseOrders?$count=true", params: params), type: Item
     end
 
     def retreive(company, order_id, **params)

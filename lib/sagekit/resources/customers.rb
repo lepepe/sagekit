@@ -2,7 +2,7 @@ module Sagekit
   class CustomersResource < Resource
 
     def list(company, **params)
-      Customer.new get_request("#{company}/AR/ARCustomers", params: params).body
+      Collection.from_response get_request("#{company}/AR/ARCustomers?$count=true", params: params), type: Customer
     end
 
     def retreive(company, customer_id, **params)

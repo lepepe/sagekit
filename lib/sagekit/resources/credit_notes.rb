@@ -2,7 +2,7 @@ module Sagekit
   class CreditNotesResource < Resource
 
     def list(company, **params)
-      CreditNote.new get_request("#{company}/OE/OECreditDebitNotes", params: params).body
+      Collection.from_response get_request("#{company}/OE/OECreditDebitNotes?$count=true", params: params), type: CreditNote
     end
 
     def retreive(company, id, **params)

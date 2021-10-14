@@ -2,7 +2,7 @@ module Sagekit
   class AccountSetsResource < Resource
 
     def list(company, **params)
-      AccountSet.new get_request("#{company}/AR/ARAccountSets", params: params).body
+      Collection.from_response get_request("#{company}/AR/ARAccountSets?$count=true", params: params), type: AccountSet
     end
 
     def retreive(company, id, **params)

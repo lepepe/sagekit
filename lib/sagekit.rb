@@ -4,6 +4,7 @@ require_relative "sagekit/version"
 
 module Sagekit
   autoload :Client, "sagekit/client"
+  autoload :Collection, "sagekit/collection"
   autoload :Error, "sagekit/error"
   autoload :Object, "sagekit/object"
   autoload :Resource, "sagekit/resource"
