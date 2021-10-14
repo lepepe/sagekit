@@ -112,6 +112,14 @@ To reduce the number of requests necessary for transferring large datasets, the 
 
     The =$count= query option specifies whether a count of all records will be returned as part of the response feed, regardless of how many records are actually returned in the response.
 
+- ~$select~
+
+  The =$select= query option get records with a subset of properties to include in the response
+
+   #+begin_src ruby
+    client.sales_orders.list('COMPANY', '$select':'OrderNumber,CustomerNumber')
+   #+end_src
+
 - ~$filter~
 
     The =$filter= query option specifies a set of criteria that records must satisfy before being returned, effectively allowing the caller to retrieve a subset of the resource collection based on a specified filter.
@@ -142,7 +150,7 @@ client.customers.list('COMPANY', '$filter':"CustomerNumber eq '112321' and Order
 client.customers.list('COMPANY')
 client.customers.retreive('COMPANY', 'IDCUST')
 client.customers.create('COMPANY', {})
-client.customers.update('COMPANY', {})
+client.customers.update('COMPANY', 'IDCUST', {})
 client.customers.delete('COMPANY', 'IDCUST')
 #+end_src
 
@@ -152,7 +160,7 @@ client.customers.delete('COMPANY', 'IDCUST')
 client.customer_groups.list('COMPANY')
 client.customer_groups.retreive('COMPANY', 'GROUPCODE')
 client.customer_groups.create('COMPANY', {})
-client.customer_groups.update('COMPANY', {})
+client.customer_groups.update('COMPANY', 'GROUPCODE', {})
 client.customer_groups.delete('COMPANY', 'GROUPCODE')
 #+end_src
 
@@ -162,7 +170,7 @@ client.customer_groups.delete('COMPANY', 'GROUPCODE')
 client.customer_terms.list('COMPANY')
 client.customer_terms.retreive('COMPANY', 'TERMSCODE')
 client.customer_terms.create('COMPANY', {})
-client.customer_terms.update('COMPANY', {})
+client.customer_terms.update('COMPANY', 'TERMSCODE', {})
 client.customer_terms.delete('COMPANY', 'TERMSCODE')
 #+end_src
 
@@ -172,7 +180,7 @@ client.customer_terms.delete('COMPANY', 'TERMSCODE')
 client.sales_persons.list('COMPANY')
 client.sales_persons.retreive('COMPANY', 'KEY')
 client.sales_persons.create('COMPANY', {})
-client.sales_persons.update('COMPANY', {})
+client.sales_persons.update('COMPANY', 'KEY', {})
 client.sales_persons.delete('COMPANY', 'KEY')
 client.sales_persons.statistics('COMPANY')
 client.sales_persons.filter_stats('COMPANY', 'SALESPERSON', 'YEAR', 'PERIDO')
@@ -184,7 +192,7 @@ client.sales_persons.filter_stats('COMPANY', 'SALESPERSON', 'YEAR', 'PERIDO')
 client.account_sets.list('COMPANY')
 client.account_sets.retreive('COMPANY', 'KEY')
 client.account_sets.create('COMPANY', {})
-client.account_sets.update('COMPANY', {})
+client.account_sets.update('COMPANY', 'KEY', {})
 client.account_sets.delete('COMPANY', 'KEY')
 #+end_src
 
@@ -196,8 +204,8 @@ client.account_sets.delete('COMPANY', 'KEY')
 client.vendors.list('COMPANY')
 client.vendors.retreive('COMPANY', 'VENDCODE')
 client.vendors.create('COMPANY', {})
-client.vendors.update('COMPANY', {})
-client.vendors.delete('COMPANY', 'NUMBER')
+client.vendors.update('COMPANY', 'VENDCODE', {})
+client.vendors.delete('COMPANY', 'VENDCODE')
 client.vendors.statistics('COMPANY', 'VENDCODE')
 #+end_src
 
@@ -207,7 +215,7 @@ client.vendors.statistics('COMPANY', 'VENDCODE')
 client.vendor_groups.list('COMPANY')
 client.vendor_groups.retreive('COMPANY', 'GROUPCODE')
 client.vendor_groups.create('COMPANY', {})
-client.vendor_groups.update('COMPANY', {})
+client.vendor_groups.update('COMPANY', 'GROUPCODE', {})
 client.vendor_groups.delete('COMPANY', 'GROUPCODE')
 #+end_src
 
@@ -217,7 +225,7 @@ client.vendor_groups.delete('COMPANY', 'GROUPCODE')
 client.vendor_terms.list('COMPANY')
 client.vendor_terms.retreive('COMPANY', 'TERMSCODE')
 client.vendor_terms.create('COMPANY', {})
-client.vendor_terms.update('COMPANY', {})
+client.vendor_terms.update('COMPANY', 'TERMSCODE', {})
 client.vendor_terms.delete('COMPANY', 'TERMSCODE')
 #+end_src
 
@@ -229,7 +237,7 @@ client.vendor_terms.delete('COMPANY', 'TERMSCODE')
 client.items.list('COMPANY')
 client.items.retreive('COMPANY', 'ITEMNO')
 client.items.create('COMPANY', {})
-client.items.update('COMPANY', {})
+client.items.update('COMPANY', 'ITEMNO', {})
 client.items.delete('COMPANY', 'ITEMNO')
 #+end_src
 
@@ -237,10 +245,10 @@ client.items.delete('COMPANY', 'ITEMNO')
 
 #+begin_src ruby
 client.categories.list('COMPANY')
-client.categories.retreive('COMPANY', 'CATEGORYCODE')
+client.categories.retreive('COMPANY', 'CATEGORY')
 client.categories.create('COMPANY', {})
-client.categories.update('COMPANY', {})
-client.categories.delete('COMPANY', 'CATEGORYCODE')
+client.categories.update('COMPANY', 'CATEGORY', {})
+client.categories.delete('COMPANY', 'CATEGORY')
 #+end_src
 
 **** Locations
@@ -249,7 +257,7 @@ client.categories.delete('COMPANY', 'CATEGORYCODE')
 client.locations.list('COMPANY')
 client.locations.retreive('COMPANY', 'LOCATION')
 client.locations.create('COMPANY', {})
-client.locations.update('COMPANY', {})
+client.locations.update('COMPANY', 'LOCATION', {})
 client.locations.delete('COMPANY', 'LOCATION')
 #+end_src
 

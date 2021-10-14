@@ -2,7 +2,7 @@ module Sagekit
   class SalesPersonsResource < Resource
 
     def list(company, **params)
-      SalesPerson.new get_request("#{company}/AR/ARSalespersons", params: params).body
+      Collection.from_response get_request("#{company}/AR/ARSalespersons?$count=true", params: params), type: SalesPerson
     end
 
     def retreive(company, id, **params)
@@ -25,6 +25,7 @@ module Sagekit
 
     def statistics(company, **params)
       SalesPerson.new get_request("#{company}/AR/ARSalespersonStatistics", params: params).body
+      Collection.from_response get_request("#{company}/AR/ARSalespersonStatistics?$count=true", params: params), type: SalesPerson
     end
 
     def filter_stats(company, sales_person, year, period)

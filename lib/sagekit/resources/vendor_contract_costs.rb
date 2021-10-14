@@ -2,7 +2,7 @@ module Sagekit
   class VendorContractCostsResource < Resource
 
     def list(company, **params)
-      VendorContractCost.new get_request("#{company}/PO/POVendorContractCosts", params: params).body
+      Collection.from_response get_request("#{company}/PO/POVendorContractCosts?$count=true", params: params), type: VendorContractCost
     end
 
     def retreive(company, item, vendor, **params)

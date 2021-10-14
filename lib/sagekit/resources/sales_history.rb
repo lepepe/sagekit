@@ -2,15 +2,15 @@ module Sagekit
   class SalesHistoryResource < Resource
 
     def list(company, **params)
-      SalesHistory.new get_request("#{company}/OE/OESalesHistory", params: params).body
+      Collection.from_response get_request("#{company}/OE/OESalesHistory?$count=true", params: params), type: SalesHistory
     end
 
     def details(company, **params)
-      SalesHistory.new get_request("#{company}/OE/OESalesHistoryDetails", params: params).body
+      Collection.from_response get_request("#{company}/OE/OESalesHistoryDetails?$count=true", params: params), type: SalesHistory
     end
 
     def stats(company, **params)
-      SalesHistory.new get_request("#{company}/OE/OESalesStatistics", params: params).body
+      Collection.from_response get_request("#{company}/OE/OESalesStatistics?$count=true", params: params), type: SalesHistory
     end
   end
 end

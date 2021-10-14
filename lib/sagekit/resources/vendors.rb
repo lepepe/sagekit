@@ -2,15 +2,15 @@ module Sagekit
   class VendorsResource < Resource
 
     def list(company, **params)
-        Vendor.new get_request("#{company}/AP/APVendors", params: params).body
+      Collection.from_response get_request("#{company}/AP/APVendors?$count=true", params: params), type: Vendor
     end
 
     def retreive(company, vendor_id, **params)
-        Vendor.new get_request("#{company}/AP/APVendors('#{vendor_id}')", params: params).body
+      Vendor.new get_request("#{company}/AP/APVendors('#{vendor_id}')", params: params).body
     end
 
     def create(company, **attributes)
-        Vendor.new post_request("#{company}/AP/APVendors", body: attributes).body
+      Vendor.new post_request("#{company}/AP/APVendors", body: attributes).body
     end
 
     def update(company, vendor_id, **attributes)
@@ -24,7 +24,7 @@ module Sagekit
     end
 
     def statistics(company, **params)
-        Vendor.new get_request("#{company}/AP/APVendorStatistics", params: params).body
+      Collection.from_response get_request("#{company}/AP/APVendorStatistics?$count=true", params: params), type: Vendor
     end
   end
 end

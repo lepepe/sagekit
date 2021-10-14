@@ -2,7 +2,7 @@ module Sagekit
   class VendorTermsResource < Resource
 
     def list(company, **params)
-      Vendor.new get_request("#{company}/AP/APTerms", params: params).body
+      Collection.from_response get_request("#{company}/AP/APTerms?$count=true", params: params), type: Vendor
     end
 
     def retreive(company, terms_code, **params)
