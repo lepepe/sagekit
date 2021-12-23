@@ -1,5 +1,5 @@
 module Sagekit
-  class LocationsResource < Resource
+  class IC::LocationsResource < Resource
 
     def list(company, **params)
       Collection.from_response get_request("#{company}/IC/ICLocations?$count=true", params: params), type: Item

@@ -1,5 +1,5 @@
 module Sagekit
-  class CategoriesResource < Resource
+  class IC::CategoriesResource < Resource
 
     def list(company, **params)
       Collection.from_response get_request("#{company}/IC/ICCategories?$count=true", params: params), type: Category

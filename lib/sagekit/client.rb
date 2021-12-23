@@ -13,76 +13,85 @@ module Sagekit
       @adapter = adapter
     end
 
-    def sales_orders
-      SalesOrdersResource.new(self)
+    # AP Accounts Payable
+    def invoice_batches
+      AP::InvoiceBatchesResource.new(self)
     end
 
-    def invoices
-      InvoicesResource.new(self)
+    def vendors
+      AP::VendorsResource.new(self)
     end
 
-    def sales_history
-      SalesHistoryResource.new(self)
+    def vendor_groups
+      AP::VendorGroupsResource.new(self)
     end
 
-    def purchase_orders
-      PurchaseOrdersResource.new(self)
+    def vendor_terms
+      AP::VendorTermsResource.new(self)
     end
 
-    def receipts
-      ReceiptsResource.new(self)
-    end
-
-    def vendor_contract_cost
-      VendorContractCostsResource.new(self)
-    end
-
+    # AR Accounts Receivable
     def customers
-      CustomersResource.new(self)
+      AR::CustomersResource.new(self)
     end
 
     def customer_groups
-      CustomerGroupsResource.new(self)
+      AR::CustomerGroupsResource.new(self)
     end
 
     def customer_terms
-      CustomerTermsResource.new(self)
+      AR::CustomerTermsResource.new(self)
     end
 
     def account_sets
-      AccountSetsResource.new(self)
+      AR::AccountSetsResource.new(self)
     end
 
+    def sales_persons
+      AR::SalesPersonsResource.new(self)
+    end
+
+    # OE Order Entry
     def credit_notes
       CreditNotesResource.new(self)
     end
 
-    def sales_persons
-      SalesPersonsResource.new(self)
+    def sales_orders
+      OE::SalesOrdersResource.new(self)
     end
 
-    def vendors
-      VendorsResource.new(self)
+    def invoices
+      OE::InvoicesResource.new(self)
     end
 
-    def vendor_groups
-      VendorGroupsResource.new(self)
+    def sales_history
+      OE::SalesHistoryResource.new(self)
     end
 
-    def vendor_terms
-      VendorTermsResource.new(self)
+    # PO Purchase Orders
+    def purchase_orders
+      PO::PurchaseOrdersResource.new(self)
     end
 
+    def receipts
+      PO::ReceiptsResource.new(self)
+    end
+
+    def vendor_contract_cost
+      PO::VendorContractCostsResource.new(self)
+    end
+
+    # IC Inventory Control
     def items
-      ItemsResource.new(self)
+      IC::ItemsResource.new(self)
     end
 
     def categories
-      CategoriesResource.new(self)
+      IC::CategoriesResource.new(self)
     end
 
     def locations
-      LocationsResource.new(self)
+      IC::LocationsResource.new(self)
     end
 
     def connection

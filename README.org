@@ -198,6 +198,13 @@ client.account_sets.delete('COMPANY', 'KEY')
 
 *** Account Payable (AP)
 
+**** Invoices Batches
+#+begin_src ruby
+client.invoice_batches.list('COMPANY')
+client.invoice_batches.retreive('COMPANY', 'NUMBER')
+client.invoice_batches.create('COMPANY', {})
+client.invoice_batches.update('COMPANY', 'NUMBER', {})
+
 **** Vendors
 
 #+begin_src ruby

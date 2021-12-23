@@ -1,5 +1,5 @@
 module Sagekit
-  class AccountSetsResource < Resource
+  class AR::AccountSetsResource < Resource
 
     def list(company, **params)
       Collection.from_response get_request("#{company}/AR/ARAccountSets?$count=true", params: params), type: AccountSet

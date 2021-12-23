@@ -1,5 +1,5 @@
 module Sagekit
-  class InvoicesResource < Resource
+  class OE::InvoicesResource < Resource
 
     def list(company, **params)
       Collection.from_response get_request("#{company}/OE/OEInvoices?$count=true", params: params), type: Invoice

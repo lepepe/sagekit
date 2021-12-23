@@ -1,5 +1,5 @@
 module Sagekit
-  class SalesPersonsResource < Resource
+  class AR::SalesPersonsResource < Resource
 
     def list(company, **params)
       Collection.from_response get_request("#{company}/AR/ARSalespersons?$count=true", params: params), type: SalesPerson

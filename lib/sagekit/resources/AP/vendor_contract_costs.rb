@@ -1,5 +1,5 @@
 module Sagekit
-  class VendorContractCostsResource < Resource
+  class AP::VendorContractCostsResource < Resource
 
     def list(company, **params)
       Collection.from_response get_request("#{company}/PO/POVendorContractCosts?$count=true", params: params), type: VendorContractCost
@@ -10,7 +10,7 @@ module Sagekit
     end
 
     def create(company, **attributes)
-      VeVendorContractCost.new post_request("#{company}/PO/POVendorContractCosts", body: attributes).body
+      VendorContractCost.new post_request("#{company}/PO/POVendorContractCosts", body: attributes).body
     end
 
     def update(company, item, vendor, **attributes)

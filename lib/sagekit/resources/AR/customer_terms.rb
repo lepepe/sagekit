@@ -1,8 +1,8 @@
 module Sagekit
-  class CustomerTermsResource < Resource
+  class AR::CustomerTermsResource < Resource
 
     def list(company, **params)
-      Customer.new get_request("#{company}/AR/ARTerms", params: params).body
+      Collection.from_response get_request("#{company}/AR/ARTerms", params: params), type: Customer
     end
 
     def retreive(company, terms_code, **params)

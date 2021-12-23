@@ -1,5 +1,5 @@
 module Sagekit
-  class VendorsResource < Resource
+  class AP::VendorsResource < Resource
 
     def list(company, **params)
       Collection.from_response get_request("#{company}/AP/APVendors?$count=true", params: params), type: Vendor

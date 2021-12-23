@@ -11,28 +11,43 @@ module Sagekit
 
   # Resources | Categories of Sage300 API calls
   # OE Module
-  autoload :SalesOrdersResource, "sagekit/resources/sales_orders"
-  autoload :InvoicesResource, "sagekit/resources/invoices"
-  autoload :SalesHistoryResource, "sagekit/resources/sales_history"
-  autoload :CreditNotesResource, "sagekit/resources/credit_notes"
+  module OE
+    autoload :SalesOrdersResource, "sagekit/resources/OE/sales_orders"
+    autoload :InvoicesResource, "sagekit/resources/OR/OEnvoices"
+    autoload :SalesHistoryResource, "sagekit/resources/OE/sales_history"
+    autoload :CreditNotesResource, "sagekit/resources/OE/credit_notes"
+  end
+
   # PO Module
-  autoload :PurchaseOrdersResource, "sagekit/resources/purchase_orders"
-  autoload :ReceiptsResource, "sagekit/resources/receipts"
-  autoload :VendorContractCostsResource, "sagekit/resources/vendor_contract_costs"
+  module PO
+    autoload :PurchaseOrdersResource, "sagekit/resources/PO/purchase_orders"
+    autoload :ReceiptsResource, "sagekit/resources/PO/receipts"
+    autoload :VendorContractCostsResource, "sagekit/resources/PO/vendor_contract_costs"
+  end
+
   # AR Module
-  autoload :CustomersResource, "sagekit/resources/customers"
-  autoload :CustomerGroupsResource, "sagekit/resources/customer_groups"
-  autoload :CustomerTermsResource, "sagekit/resources/customer_terms"
-  autoload :SalesPersonsResource, "sagekit/resources/sales_persons"
-  autoload :AccountSetsResource, "sagekit/resources/account_sets"
+  module AR
+    autoload :CustomersResource, "sagekit/resources/AR/customers"
+    autoload :CustomerGroupsResource, "sagekit/resources/AR/customer_groups"
+    autoload :CustomerTermsResource, "sagekit/resources/AR/customer_terms"
+    autoload :SalesPersonsResource, "sagekit/resources/AR/sales_persons"
+    autoload :AccountSetsResource, "sagekit/resources/AR/account_sets"
+  end
+
   # AP Module
-  autoload :VendorsResource, "sagekit/resources/vendors"
-  autoload :VendorGroupsResource, "sagekit/resources/vendor_groups"
-  autoload :VendorTermsResource, "sagekit/resources/vendor_terms"
+  module AP
+    autoload :InvoiceBatchesResource, "sagekit/resources/AP/invoice_batches"
+    autoload :VendorsResource, "sagekit/resources/AP/vendors"
+    autoload :VendorGroupsResource, "sagekit/resources/AP/vendor_groups"
+    autoload :VendorTermsResource, "sagekit/resources/AP/vendor_terms"
+  end
+
   # IC Module
-  autoload :ItemsResource, "sagekit/resources/items"
-  autoload :CategoriesResource, "sagekit/resources/categories"
-  autoload :LocationsResource, "sagekit/resources/locations"
+  module IC
+    autoload :ItemsResource, "sagekit/resources/IC/items"
+    autoload :CategoriesResource, "sagekit/resources/IC/categories"
+    autoload :LocationsResource, "sagekit/resources/IC/locations"
+  end
 
   # Objects
   # OE Module
@@ -50,6 +65,7 @@ module Sagekit
   autoload :AccountSet, "sagekit/objects/account_set.rb"
   # AP Module
   autoload :Vendor, "sagekit/objects/vendor.rb"
+  autoload :InvoiceBatch, "sagekit/objects/invoice_batch.rb"
   # IC Module
   autoload :Item, "sagekit/objects/item.rb"
   autoload :Category, "sagekit/objects/category.rb"

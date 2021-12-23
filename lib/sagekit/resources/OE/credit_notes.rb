@@ -1,5 +1,5 @@
 module Sagekit
-  class CreditNotesResource < Resource
+  class OE::CreditNotesResource < Resource
 
     def list(company, **params)
       Collection.from_response get_request("#{company}/OE/OECreditDebitNotes?$count=true", params: params), type: CreditNote

@@ -1,5 +1,5 @@
 module Sagekit
-  class ReceiptsResource < Resource
+  class PO::ReceiptsResource < Resource
 
     def list(company, **params)
       Collection.from_response get_request("#{company}/PO/POReceipts?$count=true", params: params), type: Receipt
