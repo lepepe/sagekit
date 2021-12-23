@@ -10,3 +10,8 @@
 
 - Add collection rerouces for pagination
 - Fixed IC Invoices endpoint
+
+## 0.1.2.1 (2021-10-14)
+
+- Organize recources by Modules
+- Add endpoint for AP Invoice Batches
