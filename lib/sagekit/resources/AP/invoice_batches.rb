@@ -14,7 +14,12 @@ module Sagekit
     end
 
     def update(company, batch_number, **attributes)
-      patch_request("#{company}/AR/ARTerms('#{batch_number}')", body: attributes)
+      patch_request("#{company}/AP/APInvoiceBatches(#{batch_number})", body: attributes)
+      true
+    end
+
+    def update_json(company, batch_number, options={})
+      patch_request("#{company}/AP/APInvoiceBatches(#{batch_number})", body: options)
       true
     end
 
