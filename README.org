@@ -204,6 +204,7 @@ client.invoice_batches.list('COMPANY')
 client.invoice_batches.retreive('COMPANY', 'NUMBER')
 client.invoice_batches.create('COMPANY', {})
 client.invoice_batches.update('COMPANY', 'NUMBER', {})
+#+end_src
 
 **** Vendors
 
