@@ -9,16 +9,14 @@ Gem::Specification.new do |spec|
   spec.email         = ["jose.perez@vertilux.com"]
 
   spec.summary       = "Client library for Sage300 API."
-  spec.description   = "Client library fro Sage300 API."
+  spec.description   = "Client library for Sage300 API."
   spec.homepage      = "https://lepepe.github.io/sagekit/"
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 2.4.0"
 
-  #spec.metadata["allowed_push_host"] = "TODO: Set to 'https://mygemserver.com'"
-
-  #spec.metadata["homepage_uri"] = spec.homepage
-  #spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
-  #spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
+  spec.metadata["homepage_uri"] = spec.homepage
+  spec.metadata["source_code_uri"] = "https://github.com/lepepe/sagekit"
+  spec.metadata["changelog_uri"] = "https://github.com/lepepe/sagekit/blob/main/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
