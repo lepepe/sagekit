@@ -94,6 +94,11 @@ module Sagekit
       IC::LocationsResource.new(self)
     end
 
+    # GL General Ledger
+    def accounts
+      GL::AccountsResources.new(self)
+    end
+
     def connection
       @connection ||= Faraday.new do |con|
         con.url_prefix = base_url
