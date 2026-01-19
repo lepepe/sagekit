@@ -5,7 +5,7 @@ module Sagekit
       Collection.from_response get_request("#{company}/PO/POReceipts?$count=true", params: params), type: Receipt
     end
 
-    def retreive(company, receipt_id, **params)
+    def retrieve(company, receipt_id, **params)
       Receipt.new get_request("#{company}/PO/POReceipts(#{receipt_id})", params: params).body
     end
 

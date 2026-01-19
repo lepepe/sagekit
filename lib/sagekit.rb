@@ -13,7 +13,7 @@ module Sagekit
   # OE Module
   module OE
     autoload :SalesOrdersResource, "sagekit/resources/OE/sales_orders"
-    autoload :InvoicesResource, "sagekit/resources/OR/OEnvoices"
+    autoload :InvoicesResource, "sagekit/resources/OE/invoices"
     autoload :SalesHistoryResource, "sagekit/resources/OE/sales_history"
     autoload :CreditNotesResource, "sagekit/resources/OE/credit_notes"
   end
@@ -49,6 +49,11 @@ module Sagekit
     autoload :LocationsResource, "sagekit/resources/IC/locations"
   end
 
+  # GL Module
+  module GL
+    autoload :AccountsResource, "sagekit/resources/GL/accounts"
+  end
+
   # Objects
   # OE Module
   autoload :SalesHistory, "sagekit/objects/sales_history.rb"
@@ -61,13 +66,19 @@ module Sagekit
   autoload :VendorContractCost, "sagekit/objects/vendor_contract_cost.rb"
   # AR Module
   autoload :Customer, "sagekit/objects/customer.rb"
+  autoload :CustomerGroup, "sagekit/objects/customer_group.rb"
+  autoload :CustomerTerm, "sagekit/objects/customer_term.rb"
   autoload :SalesPerson, "sagekit/objects/sales_person.rb"
   autoload :AccountSet, "sagekit/objects/account_set.rb"
   # AP Module
   autoload :Vendor, "sagekit/objects/vendor.rb"
+  autoload :VendorGroup, "sagekit/objects/vendor_group.rb"
+  autoload :VendorTerm, "sagekit/objects/vendor_term.rb"
   autoload :InvoiceBatch, "sagekit/objects/invoice_batch.rb"
   # IC Module
   autoload :Item, "sagekit/objects/item.rb"
   autoload :Category, "sagekit/objects/category.rb"
   autoload :Location, "sagekit/objects/location.rb"
+  # GL Module
+  autoload :Ledger, "sagekit/objects/ledger.rb"
 end

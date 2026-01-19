@@ -5,7 +5,7 @@ module Sagekit
       Collection.from_response get_request("#{company}/GL/GLAccounts?$count=true", params: params), type: Ledger
     end
 
-    def retreive(company, account_id, **params)
+    def retrieve(company, account_id, **params)
       Ledger.new get_request("#{company}/GL/GLAccounts('#{account_id}')", params: params).body
     end
 
@@ -19,7 +19,7 @@ module Sagekit
     end
 
     def delete(company, account_id)
-      delete_request("#{company}/GL/GLAccotuns('#{account_id}')")
+      delete_request("#{company}/GL/GLAccounts('#{account_id}')")
       true
     end
   end

@@ -5,7 +5,7 @@ module Sagekit
       Collection.from_response get_request("#{company}/PO/POVendorContractCosts?$count=true", params: params), type: VendorContractCost
     end
 
-    def retreive(company, item, vendor, **params)
+    def retrieve(company, item, vendor, **params)
       VendorContractCost.new get_request("#{company}/PO/POVendorContractCosts(ItemNumer='#{item}',VendorNumber='#{vendor}')", params: params).body
     end
 
