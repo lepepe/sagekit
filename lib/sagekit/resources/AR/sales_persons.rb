@@ -5,7 +5,7 @@ module Sagekit
       Collection.from_response get_request("#{company}/AR/ARSalespersons?$count=true", params: params), type: SalesPerson
     end
 
-    def retreive(company, id, **params)
+    def retrieve(company, id, **params)
       SalesPerson.new get_request("#{company}/AR/ARSalespersons('#{id}')", params: params).body
     end
 

@@ -5,7 +5,7 @@ module Sagekit
       Collection.from_response get_request("#{company}/PO/POPurchaseOrders?$count=true", params: params), type: PurchaseOrder
     end
 
-    def retreive(company, order_id, **params)
+    def retrieve(company, order_id, **params)
       PurchaseOrder.new get_request("#{company}/PO/POPurchaseOrders(#{order_id})", params: params).body
     end
 

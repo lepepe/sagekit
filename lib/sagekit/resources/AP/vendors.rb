@@ -5,7 +5,7 @@ module Sagekit
       Collection.from_response get_request("#{company}/AP/APVendors?$count=true", params: params), type: Vendor
     end
 
-    def retreive(company, vendor_id, **params)
+    def retrieve(company, vendor_id, **params)
       Vendor.new get_request("#{company}/AP/APVendors('#{vendor_id}')", params: params).body
     end
 

@@ -5,7 +5,7 @@ module Sagekit
       Collection.from_response get_request("#{company}/OE/OECreditDebitNotes?$count=true", params: params), type: CreditNote
     end
 
-    def retreive(company, id, **params)
+    def retrieve(company, id, **params)
       CreditNote.new get_request("#{company}/OE/OECreditDebitNotes('#{id}')", params: params).body
     end
 

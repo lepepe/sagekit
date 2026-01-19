@@ -5,7 +5,7 @@ module Sagekit
       Collection.from_response get_request("#{company}/AR/ARCustomers?$count=true", params: params), type: Customer
     end
 
-    def retreive(company, customer_id, **params)
+    def retrieve(company, customer_id, **params)
       Customer.new get_request("#{company}/AR/ARCustomers('#{customer_id}')", params: params).body
     end
 

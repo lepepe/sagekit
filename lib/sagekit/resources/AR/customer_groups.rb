@@ -2,15 +2,15 @@ module Sagekit
   class AR::CustomerGroupsResource < Resource
 
     def list(company, **params)
-      Collection.from_response get_request("#{company}/AR/ARCustomerGroups?$count=true", params: params), type: Customer
+      Collection.from_response get_request("#{company}/AR/ARCustomerGroups?$count=true", params: params), type: CustomerGroup
     end
 
-    def retreive(company, id, **params)
-      Customer.new get_request("#{company}/AR/ARCustomerGroups('#{id}')", params: params).body
+    def retrieve(company, id, **params)
+      CustomerGroup.new get_request("#{company}/AR/ARCustomerGroups('#{id}')", params: params).body
     end
 
     def create(company, **attributes)
-      Customer.new post_request("#{company}/AR/ARCustomerGroups", body: attributes).body
+      CustomerGroup.new post_request("#{company}/AR/ARCustomerGroups", body: attributes).body
     end
 
     def update(company, id, **attributes)

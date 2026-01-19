@@ -2,11 +2,11 @@ module Sagekit
   class IC::LocationsResource < Resource
 
     def list(company, **params)
-      Collection.from_response get_request("#{company}/IC/ICLocations?$count=true", params: params), type: Item
+      Collection.from_response get_request("#{company}/IC/ICLocations?$count=true", params: params), type: Location
     end
 
-    def retreive(company, location_id, **params)
-      Location.new get_request("#{company}/IC/ICLocations('#{locations_id}')", params: params).body
+    def retrieve(company, location_id, **params)
+      Location.new get_request("#{company}/IC/ICLocations('#{location_id}')", params: params).body
     end
 
     def create(company, **attributes)

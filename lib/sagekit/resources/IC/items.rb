@@ -5,7 +5,7 @@ module Sagekit
       Collection.from_response get_request("#{company}/IC/ICItems?$count=true", params: params), type: Item
     end
 
-    def retreive(company, item_id, **params)
+    def retrieve(company, item_id, **params)
       Item.new get_request("#{company}/IC/ICItems('#{item_id}')", params: params).body
     end
 

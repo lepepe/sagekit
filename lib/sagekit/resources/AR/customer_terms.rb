@@ -2,15 +2,15 @@ module Sagekit
   class AR::CustomerTermsResource < Resource
 
     def list(company, **params)
-      Collection.from_response get_request("#{company}/AR/ARTerms", params: params), type: Customer
+      Collection.from_response get_request("#{company}/AR/ARTerms?$count=true", params: params), type: CustomerTerm
     end
 
-    def retreive(company, terms_code, **params)
-      Customer.new get_request("#{company}/AR/ARTerms('#{terms_code}')", params: params).body
+    def retrieve(company, terms_code, **params)
+      CustomerTerm.new get_request("#{company}/AR/ARTerms('#{terms_code}')", params: params).body
     end
 
     def create(company, **attributes)
-      Customer.new post_request("#{company}/AR/ARTerms", body: attributes).body
+      CustomerTerm.new post_request("#{company}/AR/ARTerms", body: attributes).body
     end
 
     def update(company, terms_code, **attributes)

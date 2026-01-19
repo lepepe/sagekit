@@ -5,7 +5,7 @@ module Sagekit
       Collection.from_response get_request("#{company}/AR/ARAccountSets?$count=true", params: params), type: AccountSet
     end
 
-    def retreive(company, id, **params)
+    def retrieve(company, id, **params)
       AccountSet.new get_request("#{company}/AR/ARAccountSets('#{id}')", params: params).body
     end
 

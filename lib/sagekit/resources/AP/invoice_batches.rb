@@ -5,7 +5,7 @@ module Sagekit
       Collection.from_response get_request("#{company}/AP/APInvoiceBatches", params: params), type: InvoiceBatch
     end
 
-    def retreive(company, batch_number, **params)
+    def retrieve(company, batch_number, **params)
       InvoiceBatch.new get_request("#{company}/AP/APInvoiceBatches('#{batch_number}')", params: params).body
     end
 
